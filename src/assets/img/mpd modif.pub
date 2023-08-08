@@ -1,0 +1,6 @@
+décaler le créateur du nft dans la table nft au lieu de la table de liaison
+créer une table qui va stocké la valeur de l'ETH chaque jour (voir schéma)
+supprimer la table role, les roles seront géré par symfony
+dans nft, passé date et heure en une clonne date time
+
+Tout mettre à jour par rapport au schéma !!
