@@ -1,0 +1,72 @@
+/* carrousel telephone */
+.cont{
+    width: 50%;
+    margin: auto;
+}
+#telephone{
+    background-image: url(../../../assets/img/tel3.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 200px;
+    margin-top: 100px;
+}
+#fondHolo{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../../assets/img//hologramme/hologramme.png);
+    height: 100%;
+    width: 50%;
+    transform: translate(10px, -70px);
+    transform-origin: bottom;
+    display: flex;
+    justify-content: center;
+    transition: all 1000ms;
+    margin-bottom: 50px;
+
+}
+#telHolo{
+    /* position : relative; */
+    transform: translate(-10px, -60px);
+    transition: all 1000ms;
+}
+.basCarTel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(50px);
+}
+
+.boutonL{
+    margin-right: 20px;
+}
+.boutonR{
+    margin-left: 20px;
+}
+
+
+.fondHolo-visible {
+    opacity: 1!important;
+    scale: 100%!important;
+    transform-origin: bottom center!important;
+}
+
+.holo-visible {
+    opacity: 1!important;
+    scale: 100%!important;
+    transform-origin: bottom center!important;
+}
+
+.fondHolo-hidden, .holo-hidden {
+    opacity: 0!important;
+    scale: 0%;
+    transform-origin: bottom center!important;
+}
+
+/* fin carrousel telephone */

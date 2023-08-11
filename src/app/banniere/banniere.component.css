@@ -1,0 +1,11 @@
+.titre{
+    text-align: center;
+    padding-top: 50px;
+}
+.banniere{
+    background-image: url(src\assets\img\wave\wave5.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:left center;
+    height: 500px;
+}

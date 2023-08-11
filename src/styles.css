@@ -1,5 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@font-face {
+    font-family:'DYLOVASTUFF';
+    src:url('assets/typo/DYLOVASTUFF.ttf') format('ttf');
+}
+@font-face {
+    font-family:'Tr2n';
+    src:url('assets/typo/Tr2n.ttf') format('ttf');
+}
+
+
+@media screen and (min-width:768px) {
+    .imageConcours{
+        width: 100%;
+    }
+    .translate{
+        transform: translate(0,-200px);
+    }
+    #nftHolloTitre, #titreNftQuoi{
+        width: 50%;
+    }
+}
+@media screen and (max-width : 768px) {
+    .translate{
+        transform: translate(0,-250px);
+    }
+    #holoPyra{
+        transform: translateY(100px);
+    }
+    #nftHolloTitre, #titreNftQuoi{
+        width: 100%;
+    }
+    .imageConcours{
+        width: 50%;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .logo{
+        font-size: 130%;
+    }
+
+}
+@media screen and ( min-width:992px) {
+    .imageConcours{
+        width: 50%;
+    }
+}
+@media screen and ( max-width:992px) {
+    #fondHolo{
+    width: 80%;
+    }
+}
 
 
 /* général */
@@ -26,37 +78,6 @@ h2{
     color: #02D6F2;
 }
 
-/* navbar */
-.logo{
-    font-family: tr2n;
-    font-weight: 400;
-font-size: 40px;
-line-height: 60px;
-color: #0064F2;
-text-shadow: 0.25px 0 #0064F2, -0.5px 0 #02D6F2, 0 0.5px #02D6F2, 0 -0.5px #02D6F2,
-0.5px 0.5px #02D6F2, -0.5px 0.5px #02D6F2, 0.5px -0.5px #02D6F2, -0.5px 0.5px #02D6F2;;
-}
-nav a{
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-}
-nav img{
-    width: 75%;
-}
-
-.titre{
-    text-align: center;
-    padding-top: 50px;
-}
-.banniere{
-    background-image: url(assets/img/wave/wave5.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position:left center;
-    height: 500px;
-}
 
 a {
     padding: 5px;
@@ -110,7 +131,28 @@ a .logo{
     background-position: top right;
 }
 
-li{
-    padding: 5px;
+.translate{
+    transform: translate(0,-150px);
 }
-/* fin bannière */
+
+.title-translate{
+    transform: translate(20px,30px);
+    position: relative;
+    z-index: 20;
+}
+
+.text-bleuF{
+    color : #0064F2
+}
+
+.text-bleuC{
+    color : #02D6F2
+}
+
+.vitre{
+    padding: 10px 0;
+    border-radius: 10px;
+    background: linear-gradient(252.58deg, rgba(196, 196, 196, 0.25) 45.39%, rgba(255, 255, 255, 0.25) 82.84%);
+    box-shadow: -8px -8px 50px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}

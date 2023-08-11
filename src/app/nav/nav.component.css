@@ -1,0 +1,23 @@
+.logo{
+    font-family: tr2n;
+    font-weight: 400;
+font-size: 40px;
+line-height: 60px;
+color: #0064F2;
+text-shadow: 0.25px 0 #0064F2, -0.5px 0 #02D6F2, 0 0.5px #02D6F2, 0 -0.5px #02D6F2,
+0.5px 0.5px #02D6F2, -0.5px 0.5px #02D6F2, 0.5px -0.5px #02D6F2, -0.5px 0.5px #02D6F2;;
+}
+nav a{
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+li{
+    padding: 5px;
+}
+
+nav img{
+    width: 75%;
+}
