@@ -50,6 +50,10 @@
     margin-left: 20px;
 }
 
+.boutonL:hover, .boutonR:hover{
+    cursor: pointer;
+}
+
 
 .fondHolo-visible {
     opacity: 1!important;

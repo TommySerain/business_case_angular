@@ -5,6 +5,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { NFTHoloCestQuoiComponent } from './nftholo-cest-quoi/nftholo-cest-quoi.component';
 import { NftCestQuoiComponent } from './nft-cest-quoi/nft-cest-quoi.component';
 import { CarrouselTelephoneComponent } from './carrousel-telephone/carrousel-telephone.component';
+import { WhyEthereumComponent } from './why-ethereum/why-ethereum.component';
 
 
 
@@ -14,7 +15,8 @@ import { CarrouselTelephoneComponent } from './carrousel-telephone/carrousel-tel
     AccueilComponent,
     NFTHoloCestQuoiComponent,
     NftCestQuoiComponent,
-    CarrouselTelephoneComponent
+    CarrouselTelephoneComponent,
+    WhyEthereumComponent
   ],
   imports: [
     CommonModule
