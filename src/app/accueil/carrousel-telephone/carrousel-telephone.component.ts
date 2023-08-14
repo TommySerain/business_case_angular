@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./carrousel-telephone.component.css']
 })
 
-
 export class CarrouselTelephoneComponent {
   public elements:Array<any>=[  
     {image:"../../../assets/img/hologramme/diamant.gif",nom:"hologramme 1",categorie:"animaux",prix:200},
@@ -17,8 +16,6 @@ export class CarrouselTelephoneComponent {
   private fondHolo!:HTMLDivElement|null;
   private holo!:HTMLImageElement|null;
   private i:number=0;
-
-
 
   handlePhoneClick(){
     console.log("test");
@@ -33,10 +30,6 @@ export class CarrouselTelephoneComponent {
     this.holo!.style.transition="all 1000ms";
     this.holo!.classList.toggle("holo-hidden");
     this.fondHolo!.classList.toggle("holo-hidden");
-
-    console.log(typeof(this.fondHolo))
-    console.log(typeof(this.holo))
-
   }
 
   handleRightClick(){

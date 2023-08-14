@@ -7,22 +7,9 @@ color: #0064F2;
 text-shadow: 0.25px 0 #0064F2, -0.5px 0 #02D6F2, 0 0.5px #02D6F2, 0 -0.5px #02D6F2,
 0.5px 0.5px #02D6F2, -0.5px 0.5px #02D6F2, 0.5px -0.5px #02D6F2, -0.5px 0.5px #02D6F2;;
 }
-nav a{
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-}
 
-li{
-    padding: 5px;
-}
 
-nav img{
-    width: 75%;
-}
-
-.navbar {
-    border-bottom: 3px solid;
+#footer {
+    border-top: 3px solid;
     border-image: linear-gradient(to right,black, #0064F2, #02D6F2, #0064F2, black) 1;
 }

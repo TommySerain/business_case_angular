@@ -6,9 +6,11 @@ h3{
     color: #02D6F2;
 }
 
+#eth{
+    transform: translate(0,-20px);
+}
 
-
-@media screen and ( max-width:992px) {
+/* @media screen and ( max-width:992px) {
 
     .titreEth{
         transform: translate(0, 20px);
@@ -30,7 +32,7 @@ h3{
         bottom: 750px;
     }
 }
-@media screen and ( min-width:1330px) {
+@media screen and ( min-width:1400px) {
     #eth{
         position: relative;
         bottom: 700px;
@@ -40,7 +42,4 @@ h3{
     #whyEthComp{
         transform: translate(0,-80px);
     }
-}
-@media screen and ( min-width:1199) {
-
-}
+} */
