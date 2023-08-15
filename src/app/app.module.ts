@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { BanniereComponent } from './banniere/banniere.component';
 import { AccueilModule } from './accueil/accueil.module';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AccueilModule
+    AccueilModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

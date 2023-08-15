@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NftInterface } from 'src/app/models/nft-interface';
+import { NftService } from 'src/app/services/nft.service';
 
 @Component({
   selector: 'app-carrousel-telephone',
@@ -7,12 +9,30 @@ import { Component } from '@angular/core';
 })
 
 export class CarrouselTelephoneComponent {
+
+  // nft!: NftInterface[];
+  // constructor(private nftService: NftService){}
+  // ngOnInit(): void {
+  //   this.nftService
+  //       .getNfts()
+  //       .subscribe(
+  //         nft => this.nft = nft
+  //       );
+  // }
+  // getRandomElement = (nft: NftInterface[]) =>
+  // nft[Math.floor(Math.random() * nft.length)]
+
+
   public elements:Array<any>=[  
     {image:"../../../assets/img/hologramme/diamant.gif",nom:"hologramme 1",categorie:"animaux",prix:200},
     {image:"../../../assets/img/hologramme/lion-removebg.png",nom:"hologramme 2",categorie:"animaux",prix:200},
     {image:"../../../assets/img/hologramme/Leia.gif",nom:"hologrammel 3",categorie:"animaux",prix:200},
     {image:"../../../assets/img/hologramme/NissanT.gif",nom:"hologrammel 4",categorie:"animaux",prix:200}
   ];
+  
+
+
+
   private fondHolo!:HTMLDivElement|null;
   private holo!:HTMLImageElement|null;
   private i:number=0;
