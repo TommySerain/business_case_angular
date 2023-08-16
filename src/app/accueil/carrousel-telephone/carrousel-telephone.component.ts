@@ -10,8 +10,13 @@ import { NftService } from 'src/app/services/nft.service';
 
 export class CarrouselTelephoneComponent {
 
-  nfts!: NftInterface[];
-  nftTel!: Array<NftInterface>
+  private nfts!: NftInterface[];
+  private nftTel!: Array<NftInterface>
+  private fondHolo!:HTMLDivElement|null;
+  private holo!:HTMLImageElement|null;
+  private i:number=0;
+  private link:any;
+
   getRandomNft(){
     setTimeout(() =>{
       this.nftTel=[
@@ -20,7 +25,7 @@ export class CarrouselTelephoneComponent {
       this.nfts[Math.floor(Math.random() * this.nfts.length)],
       this.nfts[Math.floor(Math.random() * this.nfts.length)]
     ]
-    },1000)
+    },2000)
   }
 
   constructor(private nftService: NftService){}
@@ -33,14 +38,14 @@ export class CarrouselTelephoneComponent {
         this.getRandomNft() ;
       }
 
-  private fondHolo!:HTMLDivElement|null;
-  private holo!:HTMLImageElement|null;
-  private i:number=0;
-
   handlePhoneClick(){
     console.log("test");
     this.fondHolo=document.querySelector("#fondHolo");
     this.holo=document.querySelector("#telHolo");
+    this.link=document.querySelector('.telHoloLink');
+    if(!this.holo?.getAttribute('alt')){
+      this.holo!.setAttribute('alt',`${this.nftTel[0].id}`)
+    }
     if(!this.holo?.getAttribute('src')){
       this.holo!.setAttribute("src",this.nftTel[0].img);
     }
@@ -64,6 +69,8 @@ export class CarrouselTelephoneComponent {
             this.i++
         }
         this.holo!.setAttribute("src",this.nftTel[this.i].img)
+        this.link!.setAttribute("routerLink",this.nftTel[this.i].id);
+        this.holo!.setAttribute('alt',`${this.nftTel[this.i].id}`)
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);
@@ -82,6 +89,8 @@ export class CarrouselTelephoneComponent {
             this.i--
         }
         this.holo!.setAttribute("src",this.nftTel[this.i].img)
+        this.link!.setAttribute("routerLink",this.nftTel[this.i].id);
+        this.holo!.setAttribute('alt',`${this.nftTel[this.i].id}`)
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);

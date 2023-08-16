@@ -8,18 +8,23 @@ import { BanniereComponent } from './banniere/banniere.component';
 import { AccueilModule } from './accueil/accueil.module';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NftDetailsModule } from './nft-details/nft-details.module';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BanniereComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccueilModule,
+    NftDetailsModule,
     HttpClientModule
   ],
   providers: [],

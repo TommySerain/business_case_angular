@@ -4,7 +4,7 @@
         <div class="row cont">
             <div id="telephone" (click)="handlePhoneClick()">
                 <div id="fondHolo" class="holo-hidden" #fondHolo>
-                    <img id="telHolo" class="holo-hidden" #holo>
+                    <a [routerLink]="['/nft',holo.alt]" class="telHoloLink p-0 m-0 w-100 text-center"><img id="telHolo" class="holo-hidden " #holo></a>
                 </div>
             </div>
 
