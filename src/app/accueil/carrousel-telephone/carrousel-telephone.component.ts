@@ -32,17 +32,6 @@ export class CarrouselTelephoneComponent {
         );
         this.getRandomNft() ;
       }
-      
-      
-      public elements:Array<any>=[  
-        {image:"../../../assets/img/hologramme/diamant.gif",nom:"hologramme 1",categorie:"animaux",prix:200},
-        {image:"../../../assets/img/hologramme/lion-removebg.png",nom:"hologramme 2",categorie:"animaux",prix:200},
-        {image:"../../../assets/img/hologramme/Leia.gif",nom:"hologrammel 3",categorie:"animaux",prix:200},
-        {image:"../../../assets/img/hologramme/NissanT.gif",nom:"hologrammel 4",categorie:"animaux",prix:200}
-  ];
-  
-
-
 
   private fondHolo!:HTMLDivElement|null;
   private holo!:HTMLImageElement|null;
