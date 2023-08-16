@@ -10,24 +10,35 @@ import { NftService } from 'src/app/services/nft.service';
 
 export class CarrouselTelephoneComponent {
 
-  // nft!: NftInterface[];
-  // constructor(private nftService: NftService){}
-  // ngOnInit(): void {
-  //   this.nftService
-  //       .getNfts()
-  //       .subscribe(
-  //         nft => this.nft = nft
-  //       );
-  // }
-  // getRandomElement = (nft: NftInterface[]) =>
-  // nft[Math.floor(Math.random() * nft.length)]
+  nfts!: NftInterface[];
+  nftTel!: Array<NftInterface>
+  getRandomNft(){
+    setTimeout(() =>{
+      this.nftTel=[
+      this.nfts[Math.floor(Math.random() * this.nfts.length)],
+      this.nfts[Math.floor(Math.random() * this.nfts.length)],
+      this.nfts[Math.floor(Math.random() * this.nfts.length)],
+      this.nfts[Math.floor(Math.random() * this.nfts.length)]
+    ]
+    },1000)
+  }
 
-
-  public elements:Array<any>=[  
-    {image:"../../../assets/img/hologramme/diamant.gif",nom:"hologramme 1",categorie:"animaux",prix:200},
-    {image:"../../../assets/img/hologramme/lion-removebg.png",nom:"hologramme 2",categorie:"animaux",prix:200},
-    {image:"../../../assets/img/hologramme/Leia.gif",nom:"hologrammel 3",categorie:"animaux",prix:200},
-    {image:"../../../assets/img/hologramme/NissanT.gif",nom:"hologrammel 4",categorie:"animaux",prix:200}
+  constructor(private nftService: NftService){}
+  ngOnInit(): void {
+    this.nftService
+        .getNfts()
+        .subscribe(
+          nfts => this.nfts = nfts['hydra:member']
+        );
+        this.getRandomNft() ;
+      }
+      
+      
+      public elements:Array<any>=[  
+        {image:"../../../assets/img/hologramme/diamant.gif",nom:"hologramme 1",categorie:"animaux",prix:200},
+        {image:"../../../assets/img/hologramme/lion-removebg.png",nom:"hologramme 2",categorie:"animaux",prix:200},
+        {image:"../../../assets/img/hologramme/Leia.gif",nom:"hologrammel 3",categorie:"animaux",prix:200},
+        {image:"../../../assets/img/hologramme/NissanT.gif",nom:"hologrammel 4",categorie:"animaux",prix:200}
   ];
   
 
@@ -42,7 +53,7 @@ export class CarrouselTelephoneComponent {
     this.fondHolo=document.querySelector("#fondHolo");
     this.holo=document.querySelector("#telHolo");
     if(!this.holo?.getAttribute('src')){
-      this.holo!.setAttribute("src",this.elements[0].image);
+      this.holo!.setAttribute("src",this.nftTel[0].img);
     }
     this.holo!.style.width="80%";
     this.holo!.style.height="80%";
@@ -58,16 +69,16 @@ export class CarrouselTelephoneComponent {
     this.holo!.classList.add("holo-hidden");
     this.fondHolo!.classList.add("holo-hidden");
     setTimeout(() => {
-        if (this.i==this.elements.length-1) {
+        if (this.i==this.nftTel.length-1) {
             this.i=0
         }else{
             this.i++
         }
-        this.holo!.setAttribute("src",this.elements[this.i].image)
+        this.holo!.setAttribute("src",this.nftTel[this.i].img)
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);
-        console.log(this.i, this.elements.length)
+        console.log(this.i, this.nftTel.length)
   }
 
   handleLeftClick(){
@@ -77,14 +88,14 @@ export class CarrouselTelephoneComponent {
     this.fondHolo!.classList.add("holo-hidden");
     setTimeout(() => {
         if (this.i===0) {
-            this.i=this.elements.length-1
+            this.i=this.nftTel.length-1
         }else{
             this.i--
         }
-        this.holo!.setAttribute("src",this.elements[this.i].image)
+        this.holo!.setAttribute("src",this.nftTel[this.i].img)
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);
-        console.log(this.i, this.elements.length)
+        console.log(this.i, this.nftTel.length)
   }
 }
