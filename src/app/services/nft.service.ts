@@ -9,11 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NftService {
 
-  url:string = "http://localhost:8000/api/n_f_ts"
+  urlnft:string = "http://localhost:8000/api/n_f_ts";
 
   constructor(private http: HttpClient) { }
 
   getNfts(): Observable<any>{
-    return this.http.get<NftInterface[]>(this.url);
+    return this.http.get<NftInterface[]>(this.urlnft);
+  }
+
+  getNft(id:number): Observable<any>{
+    return this.http.get<NftInterface>(`${this.urlnft}/${id}`);
   }
 }
