@@ -1,0 +1,9 @@
+.detailsTitle{
+    position: relative;
+    top: 30px;
+    left: 10%;
+    z-index: 2;
+}
+p{
+    font-size: 1.2rem;
+}

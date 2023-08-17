@@ -1,0 +1,16 @@
+.vitreNftDetails{
+    width: 40vw;
+    height: 40vw;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 10%;
+}
+h2, h3{
+    color: white;
+}
+
+.infoBox{
+    margin: 0 5%;
+    position: relative;
+    bottom: 100px;
+}

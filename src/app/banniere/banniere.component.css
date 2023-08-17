@@ -4,8 +4,9 @@
 }
 .banniere{
     background-image: url(src\assets\img\wave\wave5.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position:left center;
+    width: 100%;
     height: 80vh;
 }

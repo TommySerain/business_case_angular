@@ -1,0 +1,23 @@
+<div class="translate">
+    <section class="container">
+        <div class="row">
+            <h2 class="vitre w-auto p-3 detailsTitle">DETAILS</h2>
+        </div>
+        <div class="row vitre p-5">
+            <div *ngIf="data" class="col-4">
+                <p>Nom : {{data.name}}</p>
+                <p>Nombre existant : {{data.existingNumber}}</p>
+                <p>Collection : {{data.collection_id}}</p>
+            </div>
+            <div *ngIf="data" class="col-4">
+                <p *ngIf="data">Date de chargement : {{data.launchDate | date:'dd/MM/yyyy'}}</p>
+                <p>Prix au chargement : {{data.launchPriceEth}} ETH</p>
+                <p>Prix au chargement : {{data.launchPriceEur}} €</p>
+            </div>
+            <div *ngIf="data" class="col-4">
+                <p>Createur : {{data.creator}}</p>
+                <p>Proprietaire : {{data.user.pseudo}}</p>
+            </div>
+        </div>
+    </section>
+</div>

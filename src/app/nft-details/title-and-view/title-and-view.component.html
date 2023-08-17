@@ -1,0 +1,18 @@
+<div class="translate">
+    <section class="container titleAndView text-center">
+        <div *ngIf="data" class="row">
+            <h2 class="fs-1">{{data.name}}</h2>
+        </div>
+        <div *ngIf="data" class="row vitre justify-content-center vitreNftDetails mx-auto mb-5">
+            <img src={{data.img}} alt="">
+        </div>
+        <div *ngIf="data" class="vitre infoBox d-inline-block w-25">
+            <h3 class="fs-4">Artiste</h3>
+            <p>{{data.creator}}</p>
+        </div>
+        <div *ngIf="data" class="vitre infoBox d-inline-block w-25">
+            <h3 class="fs-4">Possesseur</h3>
+            <p>{{data.user.pseudo}}</p>
+        </div>
+    </section>
+</div>
