@@ -42,7 +42,10 @@ export class CourbeEthComponent implements OnInit {
                     label: "ETH",
                     borderColor: "#02D6F2",
                     backgroundColor: "#02D6F2",
-                    fill: false
+                    pointBackgroundColor: "#0064F2",
+                    fill: false,
+                    borderCapStyle: "round",
+                    cubicInterpolationMode: "monotone" //default pour reprendre la courbe normale
                   }
                 ]
               },
@@ -51,15 +54,24 @@ export class CourbeEthComponent implements OnInit {
                 maintainAspectRatio: false,
                 scales: {
                   y: {
+                    ticks: {
+                      color: "white",
+                    },
                     beginAtZero: false,
                     title: {
                       display: true,
-                      text: "Prix en EUR"
+                      text: "Prix en EUR",
+                      color: "white",
+                      font: {
+                        size: 18,
+                        family: "roboto"
+                      }
                     }
                   },
                   x: {
                     ticks: {
                       autoSkip: true,
+                      color: "white",
                       maxTicksLimit: 20
                     }
                   }
@@ -68,15 +80,17 @@ export class CourbeEthComponent implements OnInit {
                   title: {
                     display: true,
                     text: "Evolution du cours de l'ETH en EUR sur les 7 derniers jours (Mis à jour à 23H)",
+                    color: "white",
                     font: {
                       size: 18,
-                      family: "Kodchasan"
+                      family: "roboto"
                     }
                   },
                   legend: {
                     labels: {
+                      color: "white",
                       font: {
-                        family: "Kodchasan"
+                        family: "roboto"
                       }
                     }
                   }
