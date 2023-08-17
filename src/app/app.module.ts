@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -13,12 +12,13 @@ import { NftDetailsModule } from './nft-details/nft-details.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BanniereComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import { NftCestQuoiComponent } from './nft-cest-quoi/nft-cest-quoi.component';
 import { CarrouselTelephoneComponent } from './carrousel-telephone/carrousel-telephone.component';
 import { WhyEthereumComponent } from './why-ethereum/why-ethereum.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { CourbeEthComponent } from './courbe-eth/courbe-eth.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -19,6 +21,7 @@ import { AppRoutingModule } from '../app-routing.module';
     NftCestQuoiComponent,
     CarrouselTelephoneComponent,
     WhyEthereumComponent,
+    CourbeEthComponent,
 
   ],
   imports: [
@@ -27,7 +30,8 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   exports: [
     AccueilComponent,
-    CarrouselTelephoneComponent
+    CarrouselTelephoneComponent,
+    NgChartsModule
   ]
 })
 export class AccueilModule { }
