@@ -3,22 +3,22 @@
         <div class="row">
             <h2 class="vitre w-auto p-3 detailsTitle">DETAILS</h2>
         </div>
-        <div class="row vitre align-items-center p-5">
+        <div class="row vitre p-5">
             <div *ngIf="data" class="col-4">
-                <p class="m-5">Nom : {{data.name}}</p>
+                <p class="m-5 mt-0">Nom : {{data.name}}</p>
                 <p class="m-5">Nombre existant : {{data.existingNumber}}</p>
-                <p class="m-5">Collection : {{data.collection.name}}</p>
+                <p class="m-5 mb-0">Collection : {{data.collection.name}}</p>
             </div>
             <div *ngIf="data" class="col-4">
-                <p class="m-5">Date de chargement : {{data.launchDate | date:'dd/MM/yyyy'}}</p>
+                <p class="m-5 mt-0">Date de chargement : {{data.launchDate | date:'dd/MM/yyyy'}}</p>
                 <p class="m-5">Prix au chargement : {{data.launchPriceEth}}ETH</p>
-                <p class="m-5">Prix au chargement : {{data.launchPriceEur}}€</p>
+                <p class="m-5 mb-0">Prix au chargement : {{data.launchPriceEur}}€</p>
             </div>
             <div *ngIf="data" class="col-4">
                 <p>Createur : {{data.creator}}</p>
                 <p>Proprietaire : {{data.user.pseudo}}</p>
                 <div class="row">
-                    <p>Catégories :</p>
+                    <p (click)="handleClick()" >Catégories :</p>
                     <div class="col-4 border text-center rounded-5 border-primary p-1 m-3" *ngFor="let category; let i=index of data.category">{{data.category[i].name}}</div>
                 </div>
             </div>
