@@ -1,3 +1,4 @@
+import { CategoryInterface } from "./category-interface";
 import { CollectionInterface } from "./collection-interface";
 import { UserInterface } from "./user-interface";
 
@@ -9,8 +10,9 @@ export interface NftInterface {
     launchDate: Date,
     launchPriceEth: number,
     launchPriceEur: number,
-    collection_id: CollectionInterface,
+    collection: CollectionInterface,
     user: UserInterface,
     description: string,
-    creator: string
+    creator: string,
+    category:Array<CategoryInterface>
 }
