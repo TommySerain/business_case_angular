@@ -1,14 +1,17 @@
 <section>
     <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Connexion</h2>
-    <form  [formGroup]="loginForm" class="d-flex flex-column" action="" method="POST">
+    <form  [formGroup]="loginForm" class="d-flex flex-column" action="" method="POST" name="form" (ngSubmit)="onSubmit({username:emailLogin.value, password:passLogin.value})">
         <div class="m-2 mb-4">
             <label class="text-white" for="emailLogin">Email : </label>
-            <input class="form-control vitre text-white px-3" type="email" name="emailLogin" id="emailLogin" formControlName="emailLogin" #emailLogin>
+            <input class="form-control vitre text-white px-3" type="email" name="emailLogin" id="emailLogin" formControlName="emailLogin" #emailLogin required>
         </div>
         <div class="m-2 mb-4">
             <label class="text-white" for="passLogin">Password : </label>
-            <input class="form-control vitre text-white px-3" type="password" name="passLogin" id="passLogin" formControlName="passLogin" #passLogin>
+            <input class="form-control vitre text-white px-3" type="password" name="passLogin" id="passLogin" formControlName="passLogin" #passLogin required>
         </div>
-        <button type="submit" class="borderAngle p-1 col-3 align-self-center" (click)="consoleDisplay(emailLogin.value, passLogin.value)"> Se connecter</button>
+        <p *ngIf="!loginForm.valid && loginForm.touched" class="error-block">
+            Ce formulaire n’est pas valide
+        </p>
+        <button [disabled]="!loginForm.valid" type="submit" class="borderAngle p-1 col-3 align-self-center"> Se connecter</button>
     </form>
 </section>
