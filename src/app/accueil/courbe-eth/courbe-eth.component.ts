@@ -43,6 +43,9 @@ export class CourbeEthComponent implements OnInit {
                     borderColor: "#02D6F2",
                     backgroundColor: "#02D6F2",
                     pointBackgroundColor: "#0064F2",
+                    pointRadius: 5,
+                    pointBorderColor : "#02D6F2",
+                    pointBorderWidth: 2,
                     fill: false,
                     borderCapStyle: "round",
                     cubicInterpolationMode: "monotone" //default pour reprendre la courbe normale
