@@ -9,6 +9,8 @@ import { FooterComponent } from './all-pages-elements/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NftDetailsModule } from './nft-details/nft-details.module';
 import { AllPagesElementsModule } from './all-pages-elements/all-pages-elements.module';
+import { LogModule } from './log/log.module';
+
 
 
 
@@ -24,7 +26,9 @@ import { AllPagesElementsModule } from './all-pages-elements/all-pages-elements.
     AccueilModule,
     NftDetailsModule,
     HttpClientModule,
-    AllPagesElementsModule
+    AllPagesElementsModule,
+    LogModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

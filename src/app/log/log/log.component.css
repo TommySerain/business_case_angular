@@ -1,0 +1,6 @@
+.form-control{
+border:2px solid #0064F2;
+}
+input:focus{
+    background: linear-gradient(252.58deg, rgba(196, 196, 196, 0.25) 45.39%, rgba(255, 255, 255, 0.25) 82.84%);
+}
