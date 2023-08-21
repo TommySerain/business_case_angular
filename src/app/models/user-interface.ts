@@ -1,16 +1,16 @@
 import { CountryInterface } from "./country-interface";
 
 export interface UserInterface {
-    id: number;
+    id?: number;
     email: string;
-    roles: string[];
+    roles?: string[];
     password: string;
     firstname: string;
     lastname: string;
     pseudo:string;
-    gender: number;
+    gender: string;
     birthdate: string;
     address: string;
     zipcode: string;
-    country_id: CountryInterface;
+    country: CountryInterface;
 }
