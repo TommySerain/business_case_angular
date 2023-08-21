@@ -10,7 +10,9 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./login.component.css', '../log/log.component.css']
 })
 export class LoginComponent{
-  constructor(private fb:FormBuilder, private login:LoginService, private token: TokenService){}
+  constructor(private fb:FormBuilder,
+    private login:LoginService,
+    private token: TokenService){}
 
   title = 'Login';
   loginForm = this.fb.group({
@@ -24,7 +26,6 @@ export class LoginComponent{
       data =>{
         this.token.saveToken(data.token);
         this.token.saveUserCredentials(credential.username);
-        // console.log(data.token)
       }
       ,(err) =>{console.log(err)
       }

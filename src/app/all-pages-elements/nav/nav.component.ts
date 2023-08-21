@@ -11,7 +11,7 @@ export class NavComponent {
   constructor(private tokenService:TokenService){}
 
   isLoggedIn(): boolean {
-    return this.tokenService.isLogged();
+    return this.tokenService.getIsLogged();
   }
 
 }

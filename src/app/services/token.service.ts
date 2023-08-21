@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 })
 export class TokenService {
 
-  readonly USER_KEY = 'user_key';
+  readonly USER_KEY: string = 'user_key';
+  private logged: boolean = false;
 
   constructor( private router: Router) { }
 
@@ -19,8 +20,16 @@ export class TokenService {
     localStorage.setItem(this.USER_KEY, username);
   }
 
-  isLogged(): boolean{
+  getToken():string|null{
+    return localStorage.getItem('token');
+  }
 
-    return !! localStorage.getItem('token')
-    }
+  getIsLogged():boolean{
+    return this.logged
+  }
+
+  setIsLogged(value:boolean):void{
+    this.logged = value;
+  }
+
 }
