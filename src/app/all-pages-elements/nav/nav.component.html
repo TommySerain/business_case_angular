@@ -21,7 +21,8 @@
                         <a class=" p-1" href="#">Qui sommes nous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderAngle p-1 " routerLink="/login">S'inscrire/Se connecter</a>
+                        <a *ngIf="!isLoggedIn()" class="borderAngle p-1 " routerLink="/login">S'inscrire/Se connecter</a>
+                        <a *ngIf="isLoggedIn()" class="borderAngle p-1 " routerLink="/login">Mon Compte</a>
                     </li>
                 </ul>
             </div>

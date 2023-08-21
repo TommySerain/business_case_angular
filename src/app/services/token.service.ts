@@ -18,4 +18,9 @@ export class TokenService {
   saveUserCredentials(username:string):void {
     localStorage.setItem(this.USER_KEY, username);
   }
+
+  isLogged(): boolean{
+
+    return !! localStorage.getItem('token')
+    }
 }
