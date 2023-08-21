@@ -23,7 +23,9 @@
                     <li class="nav-item">
                         <a *ngIf="!isLoggedIn()" class="borderAngle p-1 " routerLink="/login">S'inscrire/Se connecter</a>
                         <a *ngIf="isLoggedIn()" class="borderAngle p-1 " routerLink="">Mon Compte</a>
-                        <a *ngIf="isLoggedIn()" class="borderAngle p-1 " routerLink="/login" (click)="disconnected()">Se déconnecter</a>
+                    </li>
+                    <li *ngIf="isLoggedIn()" >
+                        <a class="borderAngle p-1 " routerLink="/login" (click)="disconnected()">Se déconnecter</a>
                     </li>
                 </ul>
             </div>
