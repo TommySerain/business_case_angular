@@ -9,12 +9,6 @@ import { AllPagesElementsModule } from './all-pages-elements/all-pages-elements.
 import { LogModule } from './log/log.module';
 import { TokenRequestInterceptorProvider } from './interceptor/token-request.interceptor';
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -26,8 +20,7 @@ import { TokenRequestInterceptorProvider } from './interceptor/token-request.int
     NftDetailsModule,
     HttpClientModule,
     AllPagesElementsModule,
-    LogModule,
-
+    LogModule
   ],
   providers: [TokenRequestInterceptorProvider],
   bootstrap: [AppComponent]

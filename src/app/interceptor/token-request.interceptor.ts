@@ -15,7 +15,7 @@ export class TokenRequestInterceptor implements HttpInterceptor {
 
   constructor(private tokenService: TokenService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>,next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.tokenService.getToken();
     if (token !== null) {
       let requestClone = request.clone({
@@ -31,5 +31,4 @@ export class TokenRequestInterceptor implements HttpInterceptor {
 export const TokenRequestInterceptorProvider = {
   provide: HTTP_INTERCEPTORS,
   useClass: TokenRequestInterceptor,
-  multi: true,
-};
+  multi: true,}

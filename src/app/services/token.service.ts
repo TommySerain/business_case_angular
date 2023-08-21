@@ -32,4 +32,9 @@ export class TokenService {
     this.logged = value;
   }
 
+  clearUser():void {
+    localStorage.removeItem('token');
+    localStorage.removeItem(this.USER_KEY);
+    this.setIsLogged(false);
+  }
 }

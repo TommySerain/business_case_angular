@@ -14,4 +14,8 @@ export class NavComponent {
     return this.tokenService.getIsLogged();
   }
 
+  disconnected(){
+    this.tokenService.clearUser();
+  }
+
 }
