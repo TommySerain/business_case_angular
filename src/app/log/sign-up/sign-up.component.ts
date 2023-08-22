@@ -15,6 +15,7 @@ export class SignUpComponent implements OnInit {
 
   public countries!: CountryInterface[];
 
+
   ngOnInit(): void {
     this.countryService
         .getCountries()
@@ -54,9 +55,15 @@ export class SignUpComponent implements OnInit {
         this.router.navigate(['/login'])
       },
       (err) => {
+        let duplicateMail: string=err.error['hydra:description'].includes('1062 Duplicata du champ');
+        if (duplicateMail) {
+          this.toast.error("Echec de l'inscription, email déjà existant");
+        }else{
         this.toast.error("Echec de l'inscription, veuillez vérifier vos informations");
         console.log(this.signUpform.getRawValue())
-        console.log("error",err);
+        console.log("error", err);
+        }
+
       }
     )
     console.log(localStorage)
