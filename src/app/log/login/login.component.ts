@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IdentifiantsInterface } from 'src/app/models/identifiants-interface';
 import { LoginService } from 'src/app/services/login.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -12,7 +14,9 @@ import { TokenService } from 'src/app/services/token.service';
 export class LoginComponent{
   constructor(private fb:FormBuilder,
     private login:LoginService,
-    private token: TokenService){}
+    private token: TokenService,
+    private toast: ToastrService,
+    private router: Router){}
 
   title = 'Login';
   loginForm = this.fb.group({
@@ -26,8 +30,13 @@ export class LoginComponent{
       data =>{
         this.token.saveToken(data.token);
         this.token.saveUserCredentials(credential.username);
+        this.toast.success("Connexion réussie");
+        this.router.navigate([''])
       }
-      ,(err) =>{console.log(err)
+      ,(err) =>{
+        this.toast.error("Echec de la connexion, veuillez vérifier vos informations");
+        console.log(this.loginForm.getRawValue())
+        console.log("error",err);
       }
     )
     console.log(localStorage)

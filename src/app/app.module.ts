@@ -8,6 +8,9 @@ import { NftDetailsModule } from './nft-details/nft-details.module';
 import { AllPagesElementsModule } from './all-pages-elements/all-pages-elements.module';
 import { LogModule } from './log/log.module';
 import { TokenRequestInterceptorProvider } from './interceptor/token-request.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,12 @@ import { TokenRequestInterceptorProvider } from './interceptor/token-request.int
     NftDetailsModule,
     HttpClientModule,
     AllPagesElementsModule,
-    LogModule
+    LogModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-center-center',
+    }),
   ],
   providers: [TokenRequestInterceptorProvider],
   bootstrap: [AppComponent]
