@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css', '../log/log.component.css']
 })
 export class SignUpComponent implements OnInit {
 
@@ -50,11 +50,11 @@ export class SignUpComponent implements OnInit {
     this.userService.addUser(this.signUpform)
     .subscribe(
       () => {
-        this.toast.success("Utilisateur créé avec succès");
+        this.toast.success("Inscription réussie");
         this.router.navigate(['/login'])
       },
       (err) => {
-        this.toast.error("Informations non valides");
+        this.toast.error("Echec de l'inscription, veuillez vérifier vos informations");
         console.log(this.signUpform.getRawValue())
         console.log("error",err);
       }
