@@ -4,6 +4,7 @@ import { switchMap, tap } from 'rxjs';
 import { NftInterface } from 'src/app/models/nft-interface';
 import { UserInterface } from 'src/app/models/user-interface';
 import { NftService } from 'src/app/services/nft.service';
+import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,12 +19,16 @@ export class NftDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private nftService: NftService,
+    private tokenService:TokenService,
     // private userService: UserService
   ) { }
-
+  
   ngOnInit() {
     // this.getNftDetailsAndUser();
     this.getNftDetails();
+    if(localStorage['token']){
+      this.tokenService.verifyUserNameWithToken();
+    }
   }
 
   // getNftDetailsAndUser() {

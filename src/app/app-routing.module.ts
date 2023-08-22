@@ -8,6 +8,7 @@ const routes: Routes = [
 
   { path: '', component: AccueilComponent},
   { path: 'nft/:id', component: NftDetailsComponent},
+  { path: 'nft/59', component: NftDetailsComponent},
   { path: 'login', component: LogComponent}
 
 ];
