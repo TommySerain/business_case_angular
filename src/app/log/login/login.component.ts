@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IdentifiantsInterface } from 'src/app/models/identifiants-interface';
 import { LoginService } from 'src/app/services/login.service';
 import { TokenService } from 'src/app/services/token.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent{
   constructor(private fb:FormBuilder,
     private login:LoginService,
     private token: TokenService,
+    private userService: UserService,
     private toast: ToastrService,
     private router: Router){}
 
@@ -31,7 +33,8 @@ export class LoginComponent{
         this.token.saveToken(data.token);
         this.token.saveUserCredentials(credential.username);
         this.toast.success("Connexion réussie");
-        this.router.navigate(['myAccount'])
+        this.router.navigate([''])
+        this.userService.rechercheUtilisateur();
       }
       ,(err) =>{
         this.toast.error("Echec de la connexion, veuillez vérifier vos informations");

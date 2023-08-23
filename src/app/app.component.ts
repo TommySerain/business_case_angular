@@ -1,14 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TokenService } from './services/token.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'smarthollo-angular';
+
+  constructor(private tokenService: TokenService,
+    private userService: UserService){}
 
   ngOnInit() {
     window.scrollTo(0, 0);
+  }
+
+  ngOnDestroy() {
+    this.tokenService.clearUser()
   }
 }

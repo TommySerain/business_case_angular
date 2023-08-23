@@ -10,8 +10,10 @@ import { TokenService } from './token.service';
 })
 export class UserService {
 
-  urlUser:string = "http://localhost:8000/api/users";
-  urlBase:string = "http://localhost:8000"
+  public urlUser:string = "http://localhost:8000/api/users";
+  public urlBase:string = "http://localhost:8000"
+
+  public connectedUser?: UserInterface;
 
   constructor(
     private http: HttpClient,
@@ -35,4 +37,22 @@ export class UserService {
     return users.filter(user => user.email === email);
   }
 
+  rechercheUtilisateur(): any {
+    let email:string = localStorage['user_key'];
+    this.getUsers().subscribe(
+      (response: any) => {
+        const users = response['hydra:member'];
+        const filteredUsers: UserInterface[] = this.filterUsersByEmail(users, email);
+        this.connectedUser = filteredUsers[0];
+      },
+      (error) => {
+        console.error('Une erreur s\'est produite : ', error);
+      }
+      );
+      return this.connectedUser;
+    }
+
+    clearUser(){
+      return this.connectedUser = undefined;
+    }
 }
