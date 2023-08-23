@@ -31,7 +31,7 @@ export class LoginComponent{
         this.token.saveToken(data.token);
         this.token.saveUserCredentials(credential.username);
         this.toast.success("Connexion réussie");
-        this.router.navigate([''])
+        this.router.navigate(['myAccount'])
       }
       ,(err) =>{
         this.toast.error("Echec de la connexion, veuillez vérifier vos informations");

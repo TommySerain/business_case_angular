@@ -10,7 +10,6 @@ import { MyAccountComponent } from './my-account/my-account.component';
   ],
   imports: [
     CommonModule,
-
   ],
   exports: [
     MyAccountComponent

@@ -1,4 +1,5 @@
 import { CountryInterface } from "./country-interface";
+import { NftInterface } from "./nft-interface";
 
 export interface UserInterface {
     id?: number;
@@ -13,4 +14,5 @@ export interface UserInterface {
     address: string;
     zipcode: string;
     country: CountryInterface;
+    nft?:NftInterface[];
 }
