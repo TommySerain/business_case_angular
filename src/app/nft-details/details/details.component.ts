@@ -11,6 +11,6 @@ export class DetailsComponent{
 
   @Input() data!:NftInterface
   handleClick(){
-    console.log(this.data.category)
+    // console.log(this.data.category)
   }
 }

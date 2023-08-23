@@ -60,13 +60,13 @@ export class SignUpComponent implements OnInit {
           this.toast.error("Echec de l'inscription, email déjà existant");
         }else{
         this.toast.error("Echec de l'inscription, veuillez vérifier vos informations");
-        console.log(this.signUpform.getRawValue())
-        console.log("error", err);
+        // console.log(this.signUpform.getRawValue())
+        // console.log("error", err);
         }
 
       }
     )
-    console.log(localStorage)
+    // console.log(localStorage)
   }
 
 }

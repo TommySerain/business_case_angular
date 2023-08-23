@@ -35,8 +35,8 @@ export class LoginComponent{
       }
       ,(err) =>{
         this.toast.error("Echec de la connexion, veuillez vérifier vos informations");
-        console.log(this.loginForm.getRawValue())
-        console.log("error",err);
+        // console.log(this.loginForm.getRawValue())
+        // console.log("error",err);
       }
     )
     console.log(localStorage)

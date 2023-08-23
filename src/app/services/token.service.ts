@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { TokenInterface } from '../models/token-interface';
 
 
 
@@ -41,10 +42,9 @@ export class TokenService {
     this.setIsLogged(false);
   }
 
-  decodeJwt(token: any): any {
+  decodeJwt(token: string): any {
     try {
       const decodedToken = jwtDecode(token);
-      console.log(decodedToken);
       return decodedToken;
     } catch (e) {
       console.error('Erreur lors du décodage du token : ', e);
@@ -52,20 +52,15 @@ export class TokenService {
     return null;
   }
 
-  verifyUserNameWithToken(): any {
-    const token = this.getToken();
-    const username: any = localStorage.getItem('user_key');
+  verifyUserNameWithToken(): boolean {
+    const token : string|null = this.getToken();
+    const username: string|null = localStorage.getItem('user_key');
 
     if (token !== null && username !== null) {
-      const decodedToken = this.decodeJwt(token);
-      if (decodedToken) {
-        if (decodedToken.username === username){
-          return true;
-        }else{
-          this.setIsLogged(false);
-    this.router.navigate(['/login']);
-    return false;
-        };
+      const decodedToken: any = this.decodeJwt(token);
+       // pour controller si l'utilisateur n'a pas écrit un token à la main 
+      if (decodedToken && decodedToken.username === username){
+        return true;
       }
     }
     this.setIsLogged(false);
