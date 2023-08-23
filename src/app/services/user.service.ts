@@ -30,7 +30,6 @@ export class UserService {
   addUser(formData: FormGroup): Observable<any>{
     return this.http.post(this.urlUser, formData.getRawValue());
   }
-  private users:UserInterface[]=[]
 
   filterUsersByEmail(users: UserInterface[], email: string): UserInterface[] {
     return users.filter(user => user.email === email);

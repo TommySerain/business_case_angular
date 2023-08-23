@@ -22,7 +22,7 @@
                     </li>
                     <li class="nav-item">
                         <a *ngIf="!isLoggedIn() " class="borderAngle p-1 " routerLink="/login">S'inscrire/Se connecter</a>
-                        <a *ngIf="isLoggedIn() && isTokenVerified()" class="borderAngle p-1 " routerLink="">Mon Compte</a>
+                        <a *ngIf="isLoggedIn() && isTokenVerified()" class="borderAngle p-1 " routerLink="/myAccount">Mon Compte</a>
                     </li>
                     <li *ngIf="isLoggedIn() && isTokenVerified()" >
                         <a class="borderAngle p-1 " routerLink="/login" (click)="disconnected()">Se déconnecter</a>

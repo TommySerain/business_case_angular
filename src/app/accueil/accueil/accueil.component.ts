@@ -22,20 +22,7 @@ export class AccueilComponent implements OnInit {
     if(localStorage['token']){
       this.tokenService.verifyUserNameWithToken();
     }
-    this.rechercheUtilisateur()
   }
 
-  rechercheUtilisateur() {
-    let email = localStorage['user_key'];
-    this.userService.getUsers().subscribe(
-      (response: any) => {
-        const users = response['hydra:member'];
-        const filteredUsers = this.userService.filterUsersByEmail(users, email);
-        console.log(filteredUsers);
-      },
-      (error) => {
-        console.error('Une erreur s\'est produite : ', error);
-      }
-    );
-  }
+
 }
