@@ -37,7 +37,7 @@ export class UserService {
     return users.filter(user => user.email === email);
   }
 
-  rechercheUtilisateur(): any {
+  retrieveUserData(): UserInterface|undefined {
     let email:string = localStorage['user_key'];
     this.getUsers().subscribe(
       (response: any) => {
@@ -48,11 +48,7 @@ export class UserService {
       (error) => {
         console.error('Une erreur s\'est produite : ', error);
       }
-      );
-      return this.connectedUser;
-    }
-
-    clearUser(){
-      return this.connectedUser = undefined;
-    }
+    );
+    return this.connectedUser;
+  }
 }

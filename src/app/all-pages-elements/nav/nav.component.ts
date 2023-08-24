@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
-import { UserService } from 'src/app/services/user.service';
+
 
 
 @Component({
@@ -10,8 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavComponent {
   
-  constructor(private tokenService:TokenService,
-    private userService:UserService){}
+  constructor(private tokenService:TokenService){}
 
   isTokenVerified(): boolean {
     if(localStorage['token']){
@@ -26,7 +25,6 @@ export class NavComponent {
 
   disconnected(){
     this.tokenService.clearUser();
-    this.userService.clearUser();
   }
 
 }

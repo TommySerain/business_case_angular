@@ -7,7 +7,7 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit{
   title = 'smarthollo-angular';
 
   constructor(private tokenService: TokenService,
@@ -15,9 +15,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-  }
-
-  ngOnDestroy() {
-    this.tokenService.clearUser()
   }
 }
