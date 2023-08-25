@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, SimpleChanges } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { NftInterface } from 'src/app/models/nft-interface';
 import { UserInterface } from 'src/app/models/user-interface';
 import { ApiEthService } from 'src/app/services/api-eth.service';
@@ -23,6 +24,7 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
     private userService:UserService,
     private ethService:ApiEthService,
     public nftService:NftService,
+    private toastrService:ToastrService
     ){}
     
   ngOnInit(): void {
@@ -60,9 +62,11 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
       () => {
         console.log("NFT deleted successfully");
         this.connectedUserNfts = this.connectedUserNfts.filter(nft => nft.id !== id);
+        this.toastrService.success("Suppression du Nft réussie");
         console.log(this.connectedUserNfts);
       },
       (error) => {
+        this.toastrService.error("Echec de la suppression du Nft");
         console.error("Error deleting NFT:", error);
       }
     );
