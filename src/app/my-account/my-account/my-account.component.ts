@@ -16,6 +16,7 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
 
   public connectedUser: UserInterface|undefined;
   public connectedUserNfts:NftInterface[]=[];
+  public userNumberOfNfts:number=0;
   public ethValue!: any;
   public nftId:number=-2
   
@@ -34,12 +35,19 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
     }
     this.connectedUser=this.userService.retrieveUserData()
     this.getUserNft();
-    console.log('init')
+    this.getnumberOfNfts();
+    console.log('init');
   }
 
   ngAfterViewInit() {
     this.getUserNft();
+    this.getnumberOfNfts();
     console.log('changes')
+  }
+
+  getnumberOfNfts() {
+    this.userNumberOfNfts=this.connectedUserNfts.length
+    return this.userNumberOfNfts;
   }
 
   getUserNft(){
