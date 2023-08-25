@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, OnInit, SimpleChanges } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { NftInterface } from 'src/app/models/nft-interface';
 import { UserInterface } from 'src/app/models/user-interface';
 import { ApiEthService } from 'src/app/services/api-eth.service';
 import { NftService } from 'src/app/services/nft.service';
-import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css']
 })
-export class MyAccountComponent implements OnInit {
+export class MyAccountComponent implements OnInit{
 
   public connectedUser: UserInterface|undefined=this.userService.retrieveUserData();
   public connectedUserNfts:NftInterface[]=this.connectedUser?.nft || [];
@@ -21,29 +20,22 @@ export class MyAccountComponent implements OnInit {
   public nftId:number=-2
   
   constructor(
-    private tokenService:TokenService,
     private userService:UserService,
     private ethService:ApiEthService,
     public nftService:NftService,
-    private toastrService:ToastrService
+    private router: Router
     ){}
     
   ngOnInit(): void {
     this.getActualEthValue();
-    // if(localStorage['token']){
-    //   this.tokenService.verifyUserNameWithToken();
-    // }
-    // this.connectedUser=this.userService.retrieveUserData()
-    // this.getUserNft();
-    // this.getnumberOfNfts();
-    // console.log('init');
+    if(!this.connectedUser){
+      this.router.navigate(['/login']);
+    }
   }
 
-  // ngAfterViewInit() {
-  //   this.getUserNft();
-  //   this.getnumberOfNfts();
-  //   console.log('changes')
-  // }
+  updateNumberOfNfts(newCount:number){
+    this.userNumberOfNfts-=newCount;
+  }
 
   getnumberOfNfts():number {
     this.userNumberOfNfts=this.connectedUserNfts.length
@@ -63,23 +55,6 @@ export class MyAccountComponent implements OnInit {
       );
   }
 
-  deleteNftAndUpdateNftList(id: number) {
-    this.nftService.dropNft(id).subscribe(
-      () => {
-        console.log("NFT deleted successfully");
-        this.connectedUserNfts = this.connectedUserNfts.filter(nft => nft.id !== id);
-        this.toastrService.success("Suppression du Nft réussie");
-        console.log(this.connectedUserNfts);
-      },
-      (error) => {
-        this.toastrService.error("Echec de la suppression du Nft");
-        console.error("Error deleting NFT:", error);
-      }
-    );
-    const body = document.querySelector('body');
-    body!.style.overflowY ="visible"
-  }
-
   displayPopup(event: MouseEvent){
     const button = event.target as HTMLElement;
     const id :number =Number(button.id);
@@ -87,21 +62,6 @@ export class MyAccountComponent implements OnInit {
     popup!.classList.toggle('hidden');
     const body = document.querySelector('body');
     body!.style.overflowY ="hidden"
-
+    this.nftId = id;
   }
-  
-  displayNonePopup(event: MouseEvent){
-    const button = event.target as HTMLElement;
-    const parentNode :any=button.parentNode!.parentNode;
-    console.log(parentNode);
-    parentNode!.classList.toggle('hidden');
-    const body = document.querySelector('body');
-    body!.style.overflowY ="visible"
-  }
-
-  // deleteHtmlNft(event: MouseEvent): void {
-  //   const displayedNft:any = (event.target as HTMLElement).parentNode?.parentNode;
-  //   this.deleteHtmlNft(displayedNft)
-  //   console.log("displayedNft", displayedNft);
-  // }
 }

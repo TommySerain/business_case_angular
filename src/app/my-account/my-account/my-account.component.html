@@ -10,7 +10,7 @@
     </div>
 
     <div  class="row mx-auto justify-content-between">
-        <h3 class="w-auto mx-5">Nombre de nft : {{getnumberOfNfts()}}</h3>
+        <h3 class="w-auto mx-5">Nombre de nft : {{userNumberOfNfts}}</h3>
     </div>
 
     <div class="row justify-content-between mt-5">
@@ -37,13 +37,7 @@
                     <p *ngIf="ethValue" class="mb-0">Prix actuel : {{nft.launchPriceEth * ethValue.EUR | number : '1.2-2'}} €</p>
                 </div>
             </div>
-            <div class="popup{{nft?.id}} hidden popstyle vitreDark">
-                <h2>Etes-vous sur de vouloir supprimer le NFT {{nft.name}} ?</h2>
-                <div class="d-flex justify-content-evenly">
-                    <button class="borderAngle p-1" (click)="deleteNftAndUpdateNftList(nft!.id)" >OUI</button>
-                    <button class="borderAngle p-1" (click)="displayNonePopup($event)">NON</button>
-                </div>
-            </div>
+            <app-popup-delete-nft [connectedUser]="connectedUser" [connectedUserNfts]="connectedUserNfts" [nft]="nft" [nftId]="nft.id" (numberofNftsChanged)="updateNumberOfNfts($event)"></app-popup-delete-nft>
         </div>
     </div>
 </section>

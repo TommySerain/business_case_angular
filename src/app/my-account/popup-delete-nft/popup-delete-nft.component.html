@@ -1,0 +1,7 @@
+<div class="popup{{nft.id}} hidden popstyle vitreDark">
+    <h2>Etes-vous sur de vouloir supprimer le NFT {{nft.name}} ?</h2>
+    <div class="d-flex justify-content-evenly">
+        <button class="borderAngle p-1" (click)="deleteNftConfirmed(nft!.id, $event)">OUI</button>
+        <button class="borderAngle p-1" (click)="deleteNftCanceled($event)">NON</button>
+    </div>
+</div>

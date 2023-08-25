@@ -1,0 +1,4 @@
+/* pour changer la couleur de l'icone de l'input date */
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+} 
