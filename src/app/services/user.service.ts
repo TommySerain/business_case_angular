@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { UserInterface } from '../models/user-interface';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { TokenService } from './token.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +17,15 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService
     ) { }
 
-    getUsers(): Observable<UserInterface[]> {
-      return this.http.get<UserInterface[]>(this.urlUser).pipe(
-      );
-    }
+  getUsers(): Observable<UserInterface[]> {
+    return this.http.get<UserInterface[]>(this.urlUser).pipe(
+    );
+  }
 
-  getUser(url:string): Observable<any>{
-    return this.http.get<UserInterface>(`${this.urlBase}${url}`);
+  getUser(iri:string): Observable<any>{
+    return this.http.get<UserInterface>(`${this.urlBase}${iri}`);
   }
 
   addUser(formData: FormGroup): Observable<any>{
@@ -43,6 +42,7 @@ export class UserService {
       (response: any) => {
         const users = response['hydra:member'];
         const filteredUsers: UserInterface[] = this.filterUsersByEmail(users, email);
+        console.log(filteredUsers)
         this.connectedUser = filteredUsers[0];
       },
       (error) => {

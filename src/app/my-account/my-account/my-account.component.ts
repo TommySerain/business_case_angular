@@ -12,11 +12,11 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css']
 })
-export class MyAccountComponent implements OnInit, AfterViewInit {
+export class MyAccountComponent implements OnInit {
 
-  public connectedUser: UserInterface|undefined;
-  public connectedUserNfts:NftInterface[]=[];
-  public userNumberOfNfts:number=0;
+  public connectedUser: UserInterface|undefined=this.userService.retrieveUserData();
+  public connectedUserNfts:NftInterface[]=this.connectedUser?.nft || [];
+  public userNumberOfNfts:number=this.connectedUserNfts.length;
   public ethValue!: any;
   public nftId:number=-2
   
@@ -30,27 +30,27 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
     
   ngOnInit(): void {
     this.getActualEthValue();
-    if(localStorage['token']){
-      this.tokenService.verifyUserNameWithToken();
-    }
-    this.connectedUser=this.userService.retrieveUserData()
-    this.getUserNft();
-    this.getnumberOfNfts();
-    console.log('init');
+    // if(localStorage['token']){
+    //   this.tokenService.verifyUserNameWithToken();
+    // }
+    // this.connectedUser=this.userService.retrieveUserData()
+    // this.getUserNft();
+    // this.getnumberOfNfts();
+    // console.log('init');
   }
 
-  ngAfterViewInit() {
-    this.getUserNft();
-    this.getnumberOfNfts();
-    console.log('changes')
-  }
+  // ngAfterViewInit() {
+  //   this.getUserNft();
+  //   this.getnumberOfNfts();
+  //   console.log('changes')
+  // }
 
-  getnumberOfNfts() {
+  getnumberOfNfts():number {
     this.userNumberOfNfts=this.connectedUserNfts.length
     return this.userNumberOfNfts;
   }
 
-  getUserNft(){
+  getUserNft(): NftInterface[]{
     this.connectedUserNfts = this.connectedUser?.nft || [];
     return this.connectedUserNfts 
   }
