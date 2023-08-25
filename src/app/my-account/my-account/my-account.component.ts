@@ -52,9 +52,7 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
 
   getUserNft(){
     this.connectedUserNfts = this.connectedUser?.nft || [];
-      this.nftService.nfts$.subscribe(() => {
-        console.log(this.connectedUserNfts)
-      });
+    return this.connectedUserNfts 
   }
 
   getActualEthValue(): void {
