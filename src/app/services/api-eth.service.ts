@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiEthService {
+  urlSevenDays = "https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=EUR&limit=7";
+  urlActualEthInEur = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR";
 
   constructor(private http: HttpClient) { }
 
   loadData(): Observable<any> {
-    const url = "https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=EUR&limit=7";
-    return this.http.get(url);
+    return this.http.get(this.urlSevenDays);
+  }
+  loadToDayData(): Observable<any> {
+    return this.http.get(this.urlActualEthInEur);
   }
 }

@@ -10,6 +10,7 @@ import { LogModule } from './log/log.module';
 import { TokenRequestInterceptorProvider } from './interceptor/token-request.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyAccountModule } from './my-account/my-account.module';
 
 
 @NgModule({
@@ -18,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    
     AppRoutingModule,
     AccueilModule,
     NftDetailsModule,
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot({
       positionClass: 'toast-center-center',
     }),
+    MyAccountModule
   ],
   providers: [TokenRequestInterceptorProvider],
   bootstrap: [AppComponent]
