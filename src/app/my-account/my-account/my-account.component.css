@@ -1,0 +1,25 @@
+.icon{
+    transition: all;
+    transition-duration: 500ms;
+}
+
+svg{
+    cursor: pointer;
+}
+
+.icon:hover{
+    fill: #0064F2;
+}
+
+.hidden{
+    display : none;
+}
+.popstyle{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    z-index: 20;
+    padding: 50px;
+}
