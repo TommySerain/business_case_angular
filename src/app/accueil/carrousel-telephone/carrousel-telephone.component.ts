@@ -17,26 +17,26 @@ export class CarrouselTelephoneComponent {
   private i:number=0;
   private link:any;
 
-  getRandomNft(){
-    setTimeout(() =>{
-      this.nftTel=[
-      this.nfts[Math.floor(Math.random() * this.nfts.length)],
-      this.nfts[Math.floor(Math.random() * this.nfts.length)],
-      this.nfts[Math.floor(Math.random() * this.nfts.length)],
-      this.nfts[Math.floor(Math.random() * this.nfts.length)]
-    ]
-    },2000)
-  }
-
   constructor(private nftService: NftService){}
-  ngOnInit(): void {
-    this.nftService
-        .getNfts()
-        .subscribe(
-          nfts => this.nfts = nfts['hydra:member']
-        );
+
+  async ngOnInit(): Promise<void> {
+    await this.loadNfts();
         this.getRandomNft() ;
       }
+
+  private async loadNfts(): Promise<void> {
+    const nftsResponse = await this.nftService.getNfts().toPromise();
+    this.nfts = nftsResponse['hydra:member'];
+  }
+
+  getRandomNft(){
+    this.nftTel=[
+    this.nfts[Math.floor(Math.random() * this.nfts.length)],
+    this.nfts[Math.floor(Math.random() * this.nfts.length)],
+    this.nfts[Math.floor(Math.random() * this.nfts.length)],
+    this.nfts[Math.floor(Math.random() * this.nfts.length)]
+  ]
+}
 
   handlePhoneClick(){
     // console.log("test");
