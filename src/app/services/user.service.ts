@@ -32,23 +32,23 @@ export class UserService {
     return this.http.post(this.urlUser, formData.getRawValue());
   }
 
-  filterUsersByEmail(users: UserInterface[], email: string): UserInterface[] {
-    return users.filter(user => user.email === email);
+  findUserByEmail(users: UserInterface[], email: string): UserInterface {
+    let filteredUser:UserInterface[] = users.filter(user => user.email === email);
+    return filteredUser[0];
+    //l'email étant unique en bdd, on sait qu'il n'y aura qu'une valeur dans le tableau filteredUser
+    //On return la clé 0 pour avoir un objet User au lieu d'un tableau.
   }
-
-  retrieveUserData(): UserInterface|undefined {
+  retrieveUserData(): UserInterface {
     let email:string = localStorage['user_key'];
     this.getUsers().subscribe(
       (response: any) => {
-        const users = response['hydra:member'];
-        const filteredUsers: UserInterface[] = this.filterUsersByEmail(users, email);
-        console.log(filteredUsers)
-        this.connectedUser = filteredUsers[0];
+        let users = response['hydra:member'];
+        this.connectedUser= this.findUserByEmail(users, email);
       },
       (error) => {
         console.error('Une erreur s\'est produite : ', error);
       }
     );
-    return this.connectedUser;
+    return this.connectedUser!;
   }
 }

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap} from 'rxjs';
 import { NftInterface } from '../models/nft-interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,15 @@ export class NftService {
         this.nftsSubject.next(updatedNfts);
       })
     );
+  }
+
+  editNft (id: number, dataFromEditor:any ): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
+    return this.http.patch<NftInterface>(`${this.urlnft}/${id}`, dataFromEditor, { headers }).pipe(
+      tap(() => {
+        const updatedNft = this.nftsSubject.value?.map(nft => nft.id === id ? { ...nft, ...dataFromEditor}: nft);
+        this.nftsSubject.next(updatedNft);
+      }
+    ))
   }
 }

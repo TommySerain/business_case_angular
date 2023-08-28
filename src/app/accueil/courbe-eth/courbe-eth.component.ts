@@ -82,7 +82,7 @@ export class CourbeEthComponent implements OnInit {
                 plugins: {
                   title: {
                     display: true,
-                    text: "Evolution du cours de l'ETH en EUR sur les 7 derniers jours (Mis à jour à 23H)",
+                    text: "Evolution du cours de l'ETH en EUR sur les 7 derniers jours",
                     color: "white",
                     font: {
                       size: 18,

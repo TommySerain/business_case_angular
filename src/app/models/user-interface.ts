@@ -1,3 +1,4 @@
+import { CollectionInterface } from "./collection-interface";
 import { CountryInterface } from "./country-interface";
 import { NftInterface } from "./nft-interface";
 
@@ -15,4 +16,5 @@ export interface UserInterface {
     zipcode: string;
     country: CountryInterface;
     nft?:NftInterface[];
+    collection?:CollectionInterface[];
 }

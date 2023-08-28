@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { NftInterface } from 'src/app/models/nft-interface';
 import { UserInterface } from 'src/app/models/user-interface';
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyAccountComponent implements OnInit{
 
-  public connectedUser: UserInterface|undefined=this.userService.retrieveUserData();
+  public connectedUser: UserInterface=this.userService.retrieveUserData();
   public connectedUserNfts:NftInterface[]=this.connectedUser?.nft || [];
   public userNumberOfNfts:number=this.connectedUserNfts.length;
   public ethValue!: any;

@@ -1,0 +1,21 @@
+.form-control, .borderblue{
+    border:2px solid #0064F2;
+    }
+input:focus:not(.radio), select:focus, textarea:focus{
+    background: linear-gradient(252.58deg, rgba(196, 196, 196, 0.25) 45.39%, rgba(255, 255, 255, 0.25) 82.84%);
+}
+option{
+    background-color: rgba(0, 0, 0, 0.819)!important;
+    border: 10px solid #0064F2!important;
+}
+
+.borderAngle:disabled {
+    border-image: 
+    linear-gradient(
+        to left top,
+        grey, 
+        grey
+    )1 1 50%;
+    background-position: top right;
+    background-image:linear-gradient(to right, grey, grey);
+}

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
-import { TokenInterface } from '../models/token-interface';
+import { DecodedTokenInterface } from '../models/decoded-token-interface';
+
 
 
 
@@ -51,14 +52,14 @@ export class TokenService {
     }
     return null;
   }
-
   verifyUserNameWithToken(): boolean {
     const token : string|null = this.getToken();
     const username: string|null = localStorage.getItem('user_key');
-
     if (token !== null && username !== null) {
-      const decodedToken: any = this.decodeJwt(token);
-       // pour controller si l'utilisateur n'a pas écrit un token à la main 
+      const decodedToken: DecodedTokenInterface = this.decodeJwt(token);
+      // pour controller si l'utilisateur n'a pas écrit un token à la main,
+      // que ce token a ben une clé username et
+      // que ce username est bien égal au username présent dans le localStorage
       if (decodedToken && decodedToken.username === username){
         return true;
       }

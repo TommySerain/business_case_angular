@@ -1,0 +1,49 @@
+<section class="container">
+    <form [formGroup]="editNftForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center" action="PATCH">
+        <div class="mb-4 w-100">
+            <label class="text-white" for="name">Nom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="name" id="name" value="{{nft?.name}}" formControlName="name">
+        </div>
+    <div class="mb-4 w-100">
+        <label class="text-white" for="description">Description : </label>
+        <textarea class="form-control vitre px-3 text-white" type="text" name="description" value="{{nft?.description}}" id="description" formControlName="description"></textarea>
+    </div>
+    
+    <p class="pb-0 mb-0">Categories :</p>
+    <div class="vitre form-control p-2 mb-4">
+        <p class="text-white d-inline fw-bold">Catégorie(s) actuelle(s): </p>
+        <p *ngFor="let ntfcategory of nft?.category" class="d-inline fw-bold text-white">{{ntfcategory?.name}} </p>
+        <p class="text-white">Nouvelles catégories :</p>
+        <div class="row justify-content-evenly">
+            <div *ngFor="let category of categories" class="mb-4 col-4 w-auto mx-auto">
+                <label class="text-white" for="categorie{{category?.id}}">{{category?.name}}</label>
+                <input
+                    class="vitre px-3 text-white"
+                    type="checkbox"
+                    [name]="'category' + category.id"
+                    [id]="'categorie' + category.id"
+                    [value]="category.id"
+                    [formControlName]="'category'"
+                    (change)="toggleCategorySelection(category.id)">
+            </div>
+        </div>
+    </div>
+
+    <p class="pb-0 mb-0">Collection :</p>
+    <div class="vitre form-control p-2 mb-4">
+        <p *ngIf="collections" class="text-white d-inline fw-bold">Collection actuelle: {{nft?.collection?.name}}</p>
+        <p class="text-white">Nouvelle collection :</p>
+        <div class="row justify-content-evenly">
+            <div *ngFor="let collection of collections" class="mb-4 col-4 w-auto mx-auto">
+                <label class="text-white" for="collection{{collection?.id}}">{{collection?.name}}</label>
+                <input class="vitre px-3 text-white" type="radio" name="collection" id="collection{{collection?.id}}" value={{collection?.id}} formControlName="collection">
+            </div>
+        </div>
+    </div>
+
+    <button [disabled]="!editNftForm.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">Modifier</button>
+
+    </form>
+    
+
+</section>

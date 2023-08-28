@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { PopupDeleteNftComponent } from './popup-delete-nft/popup-delete-nft.component';
-import { PopupUpdateNftComponent } from './popup-update-nft/popup-update-nft.component';
+import { EditNftComponent } from './edit-nft/edit-nft.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,11 +12,12 @@ import { PopupUpdateNftComponent } from './popup-update-nft/popup-update-nft.com
   declarations: [
     MyAccountComponent,
     PopupDeleteNftComponent,
-    PopupUpdateNftComponent
+    EditNftComponent,
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     MyAccountComponent
