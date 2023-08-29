@@ -24,7 +24,10 @@ export class AddCollectionComponent implements OnInit {
     ){}
 
 ngOnInit(): void {
-  console.log('Add Collection : ', this.connectedUser)
+  if(!this.connectedUser){
+    this.router.navigate(['']);
+  }
+
 }
 
 // Form 
@@ -37,8 +40,6 @@ addCollectionForm = this.formBuilder.group({
 onSubmit(){
   const UserIri: string = `http://localhost:8000/api/users/${this.connectedUser.id}`
   this.addCollectionForm.get('user')?.setValue(UserIri);
-
-
   console.log('Add Collection : ', UserIri)
   console.log('Add Collection : ', this.connectedUser.id)
   console.log('Add Collection : ', this.addCollectionForm)
