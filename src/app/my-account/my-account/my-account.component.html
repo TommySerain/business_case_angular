@@ -19,6 +19,11 @@
         </div>
     </div>
 
+    <div  class="row mx-auto justify-content-between">
+        <a routerLink="/new/collection" class="border-angle p-1">Créer une Collection</a>
+        <a routerLink="/new/nft" class="border-angle p-1">Ajouter un NFT</a>
+    </div>
+
     <div class="row justify-content-between mt-5">
         <h2 *ngIf="connectedUserNfts!==[]" class="col-12 text-center">Mes NFTs</h2>
         <div *ngFor="let nft of connectedUserNfts" #nftItems class="col-4 py-3 px-4">
