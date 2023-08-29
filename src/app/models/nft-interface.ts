@@ -14,5 +14,5 @@ export interface NftInterface {
     user: UserInterface,
     description: string,
     creator: string,
-    category:Array<CategoryInterface>
+    category:CategoryInterface[]
 }

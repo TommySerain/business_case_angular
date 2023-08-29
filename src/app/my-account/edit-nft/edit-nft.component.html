@@ -16,15 +16,8 @@
         <p class="text-white">Nouvelles catégories :</p>
         <div class="row justify-content-evenly">
             <div *ngFor="let category of categories" class="mb-4 col-4 w-auto mx-auto">
-                <label class="text-white" for="categorie{{category?.id}}">{{category?.name}}</label>
-                <input
-                    class="vitre px-3 text-white"
-                    type="checkbox"
-                    [name]="'category' + category.id"
-                    [id]="'categorie' + category.id"
-                    [value]="category.id"
-                    [formControlName]="'category'"
-                    (change)="toggleCategorySelection(category.id)">
+                <label class="text-white" [for]="'category' + category.id">{{category.name}}</label>
+                <input class="vitre px-3 text-white" type="checkbox" [id]="'category' + category.id" [value]="category.id" (change)="toggleCategorySelection(category.id)" required>
             </div>
         </div>
     </div>
@@ -41,8 +34,11 @@
         </div>
     </div>
 
-    <button [disabled]="!editNftForm.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">Modifier</button>
-
+<div class="d-flex w-50">
+        <button [disabled]="!editNftForm.valid" type="submit" class="borderAngle p-1 w-auto align-self-center mx-auto">Modifier</button>
+        <a routerLink="/myAccount" class="borderAngle p-1 w-auto align-self-center mx-auto">Annuler</a>
+    
+</div>
     </form>
     
 

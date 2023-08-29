@@ -22,7 +22,7 @@ export class EditNftComponent implements OnInit {
   public nft?:NftInterface;
   public categories!: CategoryInterface[];
   public collections?: CollectionInterface[];
-  public selectedCategories: number[] = [];
+  public selectedCategories: any[] = [];
 
 
   constructor(
@@ -61,43 +61,48 @@ export class EditNftComponent implements OnInit {
   }
 
 // reactiveForm
-  title = "editNft";
-  editNftForm = this.formBuilder.group({
-    name: [''],
-    description: [''],
-    category: [[]],
-    collection: []
+title = "editNft";
+editNftForm = this.formBuilder.group({
+  name: [''],
+  description: [''],
+  category: [[] as string[], Validators.required] ,
+  collection: [] 
+});
+
+toggleCategorySelection(categoryId: number):void{
+  const categoryControl = this.editNftForm.get('category');
+  
+  if (categoryControl) {
+    const currentCategories = categoryControl.value as number[] | null;
+  
+    const updatedCategories = (currentCategories ?? []).includes(categoryId)
+      ? (currentCategories ?? []).filter(id => id !== categoryId)
+      : [...(currentCategories ?? []), categoryId];
+  
+      this.selectedCategories = updatedCategories;
+      console.log(this.selectedCategories)
+      categoryControl.setValue(this.selectedCategories);
+  }
+}
+
+onSubmit() {
+  if (this.editNftForm.invalid) {
+    this.toastr.error('Erreur, Formulaire invalide');
+    return;
+  }
+  const selectedCategoryIRIs: string[] = this.selectedCategories.map(categoryId => `http://localhost:8000/api/categories/${categoryId}`);
+  console.log('categories : ', this.selectedCategories)
+  console.log('select : ', selectedCategoryIRIs);
+  const collectionId = this.editNftForm.value.collection;
+  const IRICollection: string = `http://localhost:8000/api/collection_nfts/${collectionId}`;
+  
+  this.editNftForm.get('collection')?.setValue(IRICollection as any);
+  this.editNftForm.get('category')?.setValue(selectedCategoryIRIs);
+  
+  this.nftService.editNft(this.nftId, this.editNftForm.value).subscribe(() => {
+    this.toastr.success('Nft modifié avec succès !');
+    // this.router.navigate(['/myAccount']);
   });
-
-  toggleCategorySelection(categoryId: number): void {
-    const categoryControl = this.editNftForm.get('category');
-  
-    if (categoryControl) {
-      const currentCategories = categoryControl.value as number[] | null;
-  
-      const updatedCategories = (currentCategories ?? []).includes(categoryId)
-        ? (currentCategories ?? []).filter(id => id !== categoryId)
-        : [...(currentCategories ?? []), categoryId];
-  
-      categoryControl.setValue(updatedCategories as any);
-    }
-  }
-
-  onSubmit(){
-    if(this.editNftForm.invalid){
-      this.toastr.error('Erreur, Formulaire invalide');
-      return ;
-    }
-  
-    const collectionId = this.editNftForm.value.collection;
-    const IRICollection: string = `http://localhost:8000/api/collection_nfts/${collectionId}`;
-  
-    this.editNftForm.get('collection')?.setValue(IRICollection as any);
-  
-    this.nftService.editNft(this.nftId, this.editNftForm.value).subscribe(() => {
-      this.toastr.success('Nft modifié avec succès !');
-      this.router.navigate(['/myAccount']);
-    });
-  }
+}
 
 }
