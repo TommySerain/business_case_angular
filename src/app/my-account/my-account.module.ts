@@ -5,6 +5,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { PopupDeleteNftComponent } from './popup-delete-nft/popup-delete-nft.component';
 import { EditNftComponent } from './edit-nft/edit-nft.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddNftComponent } from './add-nft/add-nft.component';
+import { AddCollectionComponent } from './add-collection/add-collection.component';
 
 
 
@@ -13,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MyAccountComponent,
     PopupDeleteNftComponent,
     EditNftComponent,
+    AddNftComponent,
+    AddCollectionComponent,
   ],
   imports: [
     CommonModule,

@@ -28,3 +28,11 @@ svg{
     z-index: 20;
     padding: 50px;
 }
+
+option{
+    background-color: rgba(0, 0, 0, 0.819)!important;
+    border: 10px solid #0064F2!important;
+}
+select:focus{
+    background: linear-gradient(252.58deg, rgba(196, 196, 196, 0.25) 45.39%, rgba(255, 255, 255, 0.25) 82.84%);
+}
