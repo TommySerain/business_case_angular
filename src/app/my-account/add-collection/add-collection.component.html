@@ -1,1 +1,14 @@
-<p>add-collection works!</p>
+<section class="container-fluid">
+    <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Inscription</h2>
+    
+    <form [formGroup]="addCollectionForm" class="row" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
+        <div class="mb-4 col-6">
+            <label class="text-white" for="name">Nom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="name" id="name" formControlName="name"  required>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button [disabled]="!addCollectionForm.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">Ajouter</button>
+            <a routerLink="/myAccount" class="borderAngle p-1 col-3 align-self-center mx-auto">Annuler</a>
+        </div>
+    </form>
+</section>

@@ -5,6 +5,8 @@ import { NftDetailsComponent } from './nft-details/nft-details/nft-details.compo
 import { LogComponent } from './log/log/log.component';
 import { MyAccountComponent } from './my-account/my-account/my-account.component';
 import { EditNftComponent } from './my-account/edit-nft/edit-nft.component';
+import { AddCollectionComponent } from './my-account/add-collection/add-collection.component';
+import { AddNftComponent } from './my-account/add-nft/add-nft.component';
 
 const routes: Routes = [
 
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LogComponent},
   { path: 'myAccount', component: MyAccountComponent},
   { path: 'edit/nft/:id', component: EditNftComponent},
+  { path: 'new/collection', component: AddCollectionComponent},
+  { path: 'new/nft', component: AddNftComponent},
 
 ];
 
