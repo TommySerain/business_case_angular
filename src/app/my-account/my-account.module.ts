@@ -7,6 +7,7 @@ import { EditNftComponent } from './edit-nft/edit-nft.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNftComponent } from './add-nft/add-nft.component';
 import { AddCollectionComponent } from './add-collection/add-collection.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
 
 
 
@@ -17,6 +18,7 @@ import { AddCollectionComponent } from './add-collection/add-collection.componen
     EditNftComponent,
     AddNftComponent,
     AddCollectionComponent,
+    EditProfilComponent,
   ],
   imports: [
     CommonModule,

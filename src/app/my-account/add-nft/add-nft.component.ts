@@ -48,19 +48,16 @@ export class AddNftComponent implements OnInit {
       launchPriceEth: [0, Validators.required],
       launchPriceEur: [0],
       collection: ['', Validators.required],
-      user: [''],
+      user: [`http://localhost:8000/api/users/${this.connectedUser.id}`],
       description: ['', Validators.required],
       creator: ['', Validators.required],
       category: [[] as string[]]
     })
 
   onSubmit(){
-    const userIri: string = `http://localhost:8000/api/users/${this.connectedUser.id}`;
     const collectionIri: string = `http://localhost:8000/api/collection_nfts/${this.addNftForm.value.collection}`;
     const selectedCategoryIRIs: string[] = this.selectedCategories.map(categoryId => `http://localhost:8000/api/categories/${categoryId}`);
-
     this.addNftForm.get('launchPriceEur')?.setValue(this.addNftForm.value.launchPriceEth! * this.ethValue);
-    this.addNftForm.get('user')?.setValue(userIri);
     this.addNftForm.get('collection')?.setValue(collectionIri);
     this.addNftForm.get('category')?.setValue(selectedCategoryIRIs);
     console.log('formvaluelaunchPriceEth :', this.addNftForm.value.launchPriceEth!)

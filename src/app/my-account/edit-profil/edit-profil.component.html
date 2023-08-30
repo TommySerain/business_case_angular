@@ -1,0 +1,37 @@
+<section class="container-fluid">
+    <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Inscription</h2>
+    
+    <form [formGroup]="editProfilform" class="row" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
+        <div class="mb-4 col-6">
+            <label class="text-white" for="email">Email : </label>
+            <input class="form-control vitre px-3 text-white" type="email" placeholder="{{connectedUser.email}}" name="email" id="email" formControlName="email">
+        </div>
+        <div class="mb-4 col-6">
+            <label class="text-white" for="lastname">Nom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.firstname}}" name="lastname" id="lastname" formControlName="lastname">
+        </div>
+        <div class="mb-4 col-6">
+            <label class="text-white" for="firstname">Prénom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.lastname}}" name="firstname" id="firstname" formControlName="firstname">
+        </div>
+        <div class="mb-4 col-6">
+            <label class="text-white" for="pseudo">Pseudo : </label>
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.pseudo}}" name="pseudo" id="pseudo" formControlName="pseudo">
+        </div>
+        <div class="mb-4 col-6">
+            <label class="text-white" for="address">Adresse : </label>
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.address}}" name="address" id="address" formControlName="address">
+        </div>
+        <div class="mb-4 col-6">
+            <label class="text-white" for="zipcode">Code Postal : </label>
+            <input class="form-control vitre text-white px-3" type="text" placeholder="{{connectedUser.zipcode}}" name="zipcode" id="zipcode" formControlName="zipcode">
+        </div>
+        
+        <div  formGroupName="country" class="mb-4 col-6">
+            <label class="text-white" for="name">Pays : </label>
+            <input class="form-control vitre text-white px-3" type="text" placeholder="{{connectedUser.country.name}}" name="name" id="name" formControlName="name">
+        </div>
+        
+        <button [disabled]="!editProfilform.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">S'inscrire</button>
+    </form>
+</section>

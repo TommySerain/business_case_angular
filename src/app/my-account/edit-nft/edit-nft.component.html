@@ -1,5 +1,5 @@
 <section class="container">
-    <form [formGroup]="editNftForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center" action="PATCH">
+    <form [formGroup]="editNftForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center" method="PATCH">
         <div class="mb-4 w-100">
             <label class="text-white" for="name">Nom : </label>
             <input class="form-control vitre px-3 text-white" type="text" name="name" id="name" value="{{nft?.name}}" formControlName="name">

@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../models/user-interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
 
@@ -14,6 +14,9 @@ export class UserService {
   public urlBase:string = "http://localhost:8000"
 
   public connectedUser?: UserInterface;
+  private UserSubject = new BehaviorSubject<UserInterface[] | undefined>(undefined);
+  nfts$ = this.UserSubject.asObservable();
+
 
   constructor(
     private http: HttpClient,
@@ -51,4 +54,15 @@ export class UserService {
     );
     return this.connectedUser!;
   }
+
+  editUserData(id:number, dataFromEditor:any): Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
+    return this.http.patch<UserInterface>(`${this.urlUser}/${id}`, dataFromEditor, { headers }).pipe(
+      tap(() => {
+        const updatedUser = this.UserSubject.value?.map(user => user.id === id ? { ...user, ...dataFromEditor}: user);
+        this.UserSubject.next(updatedUser);
+      }
+    ))
+  }
+
 }
