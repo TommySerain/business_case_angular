@@ -27,14 +27,13 @@ ngOnInit(): void {
   if(!this.connectedUser){
     this.router.navigate(['']);
   }
-
 }
 
 // Form 
 title = 'Add Collection';
 addCollectionForm = this.formBuilder.group({
   name: ['', Validators.required],
-  user :[""]
+  user :['']
 })
 
 onSubmit(){

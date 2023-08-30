@@ -28,6 +28,8 @@ export class MyAccountComponent implements OnInit{
     
   ngOnInit(): void {
     this.getActualEthValue();
+    this.connectedUser=this.userService.retrieveUserData();
+    this.connectedUserNfts=this.connectedUser?.nft || [];
     if(!this.connectedUser){
       this.router.navigate(['/login']);
     }

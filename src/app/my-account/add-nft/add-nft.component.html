@@ -1,1 +1,64 @@
-<p>add-nft works!</p>
+<section class="container">
+    <form [formGroup]="addNftForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center" action="POST">
+        
+        <div class="mb-4 w-100">
+            <label class="text-white" for="name">Nom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="name" id="name" formControlName="name">
+        </div>
+
+        <div class="mb-4 w-100">
+            <label class="text-white" for="img">Lien de l'image : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="img" id="img" formControlName="img">
+        </div>
+
+        <div class="mb-4 w-100">
+            <label class="text-white" for="existingNumber">Nombre de ce NFT existant : </label>
+            <input class="form-control vitre px-3 text-white" type="number" name="existingNumber" id="existingNumber" formControlName="existingNumber">
+        </div>
+
+        <div class="mb-4 w-100">
+            <label class="text-white" for="launchPriceEth">Prix de ce NFT en ETH : </label>
+            <input class="form-control vitre px-3 text-white" type="number" name="launchPriceEth" id="launchPriceEth" formControlName="launchPriceEth">
+        </div>
+
+        <div class="mb-4 w-100">
+            <label class="text-white" for="description">Description : </label>
+            <textarea class="form-control vitre px-3 text-white" type="text" name="description" id="description" formControlName="description"></textarea>
+        </div>
+
+        <div class="mb-4 w-100">
+            <label class="text-white" for="creator">Créateur : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="creator" id="creator" formControlName="creator">
+        </div>
+        
+        <div class="mb-4 w-100">
+            <p class="text-white">Catégories :</p>
+            <div class="vitre form-control p-2 mb-4">
+                <div class="row justify-content-evenly align-items-center">
+                    <div *ngFor="let category of categories" class="my-4 col-4 w-auto mx-auto">
+                        <label class="text-white" [for]="'category' + category.id">{{category.name}}</label>
+                        <input class="vitre px-3 text-white" type="checkbox" [id]="'category' + category.id" [value]="category.id" (change)="toggleCategorySelection(category.id)" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-4 w-100">
+            <p class="text-white">Collection :</p>
+            <div class="vitre form-control p-2 mb-4">
+                <div class="row justify-content-evenly">
+                    <div *ngFor="let collection of collections" class="my-4 col-4 w-auto mx-auto">
+                        <label class="text-white" for="collection{{collection?.id}}">{{collection?.name}}</label>
+                        <input class="vitre px-3 text-white" type="radio" name="collection" id="collection{{collection?.id}}" value={{collection?.id}} formControlName="collection">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex w-50">
+                <button [disabled]="!addNftForm.valid" type="submit" class="borderAngle p-1 w-auto align-self-center mx-auto">Créer</button>
+                <a routerLink="/myAccount" class="borderAngle p-1 w-auto align-self-center mx-auto">Annuler</a>
+        </div>
+    </form>
+    
+
+</section>

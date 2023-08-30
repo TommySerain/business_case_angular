@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap} from 'rxjs';
 import { NftInterface } from '../models/nft-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +43,10 @@ export class NftService {
       }
     ))
   }
+
+  addNft(formData: FormGroup): Observable<any>{
+    return this.http.post(this.urlnft, formData.getRawValue());
+  }
+
+  
 }
