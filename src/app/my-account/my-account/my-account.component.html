@@ -19,6 +19,10 @@
         </div>
     </div>
 
+    <div *ngIf="isAdmin">
+        <a routerLink="/userList" class="borderAngle w-auto p-1 d-inline mx-5">Accéder à la liste des utilisateurs</a>
+    </div>
+
     <div  class="row p-5 my-5 mx-3 justify-content-between">
         <a routerLink="/new/nft" class="borderAngle w-auto p-1 d-inline mx-5">Ajouter un NFT</a>
         <a routerLink="/new/collection" class="borderAngle w-auto p-1 d-inline mx-5">Créer une Collection</a>

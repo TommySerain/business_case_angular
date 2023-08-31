@@ -68,4 +68,9 @@ export class TokenService {
     this.router.navigate(['/login']);
     return false;
   }
+
+  isUserAdmin():boolean{
+    const decodedToken=this.decodeJwt(this.getToken()!)
+    return(decodedToken.roles.includes('ROLE_ADMIN'))
+  }
 }

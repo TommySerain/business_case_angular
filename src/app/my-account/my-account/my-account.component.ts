@@ -4,6 +4,7 @@ import { NftInterface } from 'src/app/models/nft-interface';
 import { UserInterface } from 'src/app/models/user-interface';
 import { ApiEthService } from 'src/app/services/api-eth.service';
 import { NftService } from 'src/app/services/nft.service';
+import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,18 +19,26 @@ export class MyAccountComponent implements OnInit{
   public userNumberOfNfts:number=this.connectedUserNfts.length;
   public ethValue!: any;
   public nftId:number=-2
+  public isAdmin!:boolean
+  public connectedUserRole!:string[]
   
   constructor(
     private userService:UserService,
     private ethService:ApiEthService,
     public nftService:NftService,
-    private router: Router
+    private tokenService:TokenService,
+    private router: Router,
     ){}
     
   ngOnInit(): void {
     this.getActualEthValue();
     this.connectedUser=this.userService.retrieveUserData();
     this.connectedUserNfts=this.connectedUser?.nft || [];
+    this.isAdmin=this.tokenService.isUserAdmin();
+    // this.decodedToken=this.tokenService.decodeJwt(this.tokenService.getToken()!)
+    // this.connectedUserRole=this.decodedToken.roles
+    // console.log('decodedToken : ',this.decodedToken);
+    // console.log('connectedUserRole : ',this.connectedUserRole)
     if(!this.connectedUser){
       this.router.navigate(['/login']);
     }
@@ -66,4 +75,8 @@ export class MyAccountComponent implements OnInit{
     body!.style.overflowY ="hidden"
     this.nftId = id;
   }
+
+  // isUserAdmin():boolean{
+  //   return(this.connectedUserRole.includes('ROLE_ADMIN'))
+  // }
 }

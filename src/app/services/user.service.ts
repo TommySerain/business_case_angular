@@ -15,8 +15,16 @@ export class UserService {
 
   public connectedUser?: UserInterface;
   private UserSubject = new BehaviorSubject<UserInterface[] | undefined>(undefined);
-  nfts$ = this.UserSubject.asObservable();
-
+  
+  editUserData(id:number, dataFromEditor:any): Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
+    return this.http.patch<UserInterface>(`${this.urlUser}/${id}`, dataFromEditor, { headers }).pipe(
+      tap(() => {
+        const updatedUser = this.UserSubject.value?.map(user => user.id === id ? { ...user, ...dataFromEditor}: user);
+        this.UserSubject.next(updatedUser);
+      }
+    ))
+  }
 
   constructor(
     private http: HttpClient,
@@ -55,14 +63,6 @@ export class UserService {
     return this.connectedUser!;
   }
 
-  editUserData(id:number, dataFromEditor:any): Observable<any>{
-    const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
-    return this.http.patch<UserInterface>(`${this.urlUser}/${id}`, dataFromEditor, { headers }).pipe(
-      tap(() => {
-        const updatedUser = this.UserSubject.value?.map(user => user.id === id ? { ...user, ...dataFromEditor}: user);
-        this.UserSubject.next(updatedUser);
-      }
-    ))
-  }
+
 
 }

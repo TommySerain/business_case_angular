@@ -1,18 +1,18 @@
-<section class="container-fluid">
+<section class="container translate">
     <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Modifier mes informations</h2>
     
-    <form [formGroup]="editProfilform" class="row" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="editProfilform" class="row vitre p-5" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
         <div class="mb-4 col-6">
             <label class="text-white" for="email">Email : </label>
             <input class="form-control vitre px-3 text-white" type="email" placeholder="{{connectedUser.email}}" name="email" id="email" formControlName="email">
         </div>
         <div class="mb-4 col-6">
             <label class="text-white" for="lastname">Nom : </label>
-            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.firstname}}" name="lastname" id="lastname" formControlName="lastname">
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.lastname}}" name="lastname" id="lastname" formControlName="lastname">
         </div>
         <div class="mb-4 col-6">
             <label class="text-white" for="firstname">Prénom : </label>
-            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.lastname}}" name="firstname" id="firstname" formControlName="firstname">
+            <input class="form-control vitre px-3 text-white" type="text" placeholder="{{connectedUser.firstname}}" name="firstname" id="firstname" formControlName="firstname">
         </div>
         <div class="mb-4 col-6">
             <label class="text-white" for="pseudo">Pseudo : </label>

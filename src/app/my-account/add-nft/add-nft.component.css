@@ -15,4 +15,12 @@
         background-position: top right;
         background-image:linear-gradient(to right, grey, grey);
     }
-    
+    form{
+        position: relative;
+        bottom: 40px;
+        z-index: 0;
+    }
+    h2{
+        position: relative;
+        z-index: 1;
+    }

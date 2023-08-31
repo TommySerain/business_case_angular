@@ -1,6 +1,10 @@
 .form-control{
     border:2px solid #0064F2;
     }
+h2{
+    position: relative;
+    z-index: 1;
+}
 
 input:focus{
     background: linear-gradient(252.58deg, rgba(196, 196, 196, 0.25) 45.39%, rgba(255, 255, 255, 0.25) 82.84%);
@@ -10,4 +14,9 @@ input::placeholder{
 }
 input:focus::placeholder{
     color:rgba(255, 255, 255, 0)
+}
+form{
+    position: relative;
+    bottom: 40px;
+    z-index: 0;
 }
