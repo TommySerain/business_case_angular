@@ -15,6 +15,7 @@ export class UserService {
 
   public connectedUser?: UserInterface;
   private UserSubject = new BehaviorSubject<UserInterface[] | undefined>(undefined);
+
   
   editUserData(id:number, dataFromEditor:any): Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
@@ -30,9 +31,8 @@ export class UserService {
     private http: HttpClient,
     ) { }
 
-  getUsers(): Observable<UserInterface[]> {
-    return this.http.get<UserInterface[]>(this.urlUser).pipe(
-    );
+  getUsers(): Observable<any>{
+    return this.http.get<UserInterface[]>(this.urlUser);
   }
 
   getUser(iri:string): Observable<any>{

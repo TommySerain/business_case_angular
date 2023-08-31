@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddNftComponent } from './add-nft/add-nft.component';
 import { AddCollectionComponent } from './add-collection/add-collection.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { AdminModule } from '../admin/admin.module';
 
 
 
@@ -23,7 +24,8 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
   imports: [
     CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdminModule
   ],
   exports: [
     MyAccountComponent

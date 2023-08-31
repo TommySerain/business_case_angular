@@ -1,0 +1,18 @@
+<section class="container vitre py-5 ps-4 d-flex justify-content-center">
+    <table class="mx-auto w-100 text-center">
+        <tr>
+            <th class="">Id</th>
+            <th>Email</th>
+            <th>Pseudo</th>
+            <th>Nom</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.pseudo}}</td>
+            <td>{{user.lastname}}</td>
+            <td><button class="borderAngle p-1">Supprimer</button></td>
+        </tr>
+    </table>
+</section>

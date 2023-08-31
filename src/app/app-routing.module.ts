@@ -8,6 +8,8 @@ import { EditNftComponent } from './my-account/edit-nft/edit-nft.component';
 import { AddCollectionComponent } from './my-account/add-collection/add-collection.component';
 import { AddNftComponent } from './my-account/add-nft/add-nft.component';
 import { EditProfilComponent } from './my-account/edit-profil/edit-profil.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 
 const routes: Routes = [
 
@@ -19,6 +21,7 @@ const routes: Routes = [
   { path: 'edit/profil', component: EditProfilComponent},
   { path: 'new/collection', component: AddCollectionComponent},
   { path: 'new/nft', component: AddNftComponent},
+  { path: 'admin/users', component: AdminUserComponent, canActivate: [AuthGuard]},
 
 ];
 
