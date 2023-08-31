@@ -32,6 +32,7 @@
             <input class="form-control vitre text-white px-3" type="text" placeholder="{{connectedUser.country.name}}" name="name" id="name" formControlName="name">
         </div>
         
-        <button [disabled]="!editProfilform.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">S'inscrire</button>
+        <button [disabled]="!editProfilform.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">Modifier mes informations</button>
+        <a routerLink="/myAccount" class="borderAngle p-1 w-auto align-self-center mx-auto">Annuler</a>
     </form>
 </section>
