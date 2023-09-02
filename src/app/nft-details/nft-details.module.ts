@@ -11,17 +11,17 @@ import { TitleAndViewComponent } from './title-and-view/title-and-view.component
 
 @NgModule({
   declarations: [
-    NftDetailsComponent,
-    TitleAndViewComponent,
-    DescriptionComponent,
-    DetailsComponent
+    // NftDetailsComponent,
+    // TitleAndViewComponent,
+    // DescriptionComponent,
+    // DetailsComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [
-    NftDetailsComponent,
+    // NftDetailsComponent,
   ]
 })
 export class NftDetailsModule { }

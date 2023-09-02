@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccueilModule } from './accueil/accueil.module';
+// import { AccueilModule } from './accueil/accueil.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NftDetailsModule } from './nft-details/nft-details.module';
 import { AllPagesElementsModule } from './all-pages-elements/all-pages-elements.module';
@@ -20,8 +20,8 @@ import { MyAccountModule } from './my-account/my-account.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AccueilModule,
-    NftDetailsModule,
+    // AccueilModule,
+    // NftDetailsModule,
     HttpClientModule,
     AllPagesElementsModule,
     LogModule,

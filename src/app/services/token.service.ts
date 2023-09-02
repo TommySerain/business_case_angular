@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { DecodedTokenInterface } from '../models/decoded-token-interface';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -13,8 +14,10 @@ export class TokenService {
 
   readonly USER_KEY: string = 'user_key';
   private logged: boolean = false;
-
-  constructor( private router: Router) { }
+  constructor(
+    private router: Router,
+    private toast: ToastrService
+    ) { }
 
   saveToken(token:string):void {
     localStorage.setItem('token',token);
@@ -69,8 +72,19 @@ export class TokenService {
     return false;
   }
 
+  isUserAdminGuards():boolean{
+    const decodedToken=this.decodeJwt(this.getToken()!)
+    if(decodedToken.roles.includes('ROLE_ADMIN')){
+      return true;
+    }else{
+      this.toast.error("Vous ne pouvez pas accéder à cette page.");
+      this.router.parseUrl('');
+      return false;
+    }
+  }
+
   isUserAdmin():boolean{
     const decodedToken=this.decodeJwt(this.getToken()!)
-    return(decodedToken.roles.includes('ROLE_ADMIN'))
+    return decodedToken.roles.includes('ROLE_ADMIN')
   }
 }

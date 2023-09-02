@@ -6,9 +6,14 @@ import { UserInterface } from 'src/app/models/user-interface';
 import { NftService } from 'src/app/services/nft.service';
 import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
+import { TitleAndViewComponent } from '../title-and-view/title-and-view.component';
+import { DescriptionComponent } from '../description/description.component';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-nft-details',
+  standalone: true,
+  imports:[TitleAndViewComponent, DescriptionComponent, DetailsComponent],
   templateUrl: './nft-details.component.html',
   styleUrls: ['./nft-details.component.css']
 })

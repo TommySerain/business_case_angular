@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { NgChartsModule } from 'ng2-charts';
 import { ApiEthService } from 'src/app/services/api-eth.service';
 
 
 @Component({
   selector: 'app-courbe-eth',
+  standalone:true,
+  imports:[NgChartsModule],
   templateUrl: './courbe-eth.component.html',
   styleUrls: ['./courbe-eth.component.css']
 })

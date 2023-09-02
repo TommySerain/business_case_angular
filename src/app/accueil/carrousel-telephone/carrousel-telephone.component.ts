@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NftInterface } from 'src/app/models/nft-interface';
 import { NftService } from 'src/app/services/nft.service';
 
 @Component({
   selector: 'app-carrousel-telephone',
+  standalone:true,
+  imports:[RouterLink],
   templateUrl: './carrousel-telephone.component.html',
   styleUrls: ['./carrousel-telephone.component.css']
 })

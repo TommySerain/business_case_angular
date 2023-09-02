@@ -26,11 +26,6 @@ export class EditProfilComponent implements OnInit {
     if (!this.connectedUser){
       this.router.navigate(['/login']);
     }
-    console.log('userEdit : ', this.connectedUser)
-    console.log('type : ', typeof(this.editProfilform))
-    console.log('what : ', typeof(this.editProfilform.value.country!.name))
-    console.log('what2 : ', this.connectedUser.country.name)
-    
   }
 
   // reactiveForm

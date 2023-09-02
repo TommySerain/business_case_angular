@@ -26,3 +26,18 @@ nav img{
     border-bottom: 3px solid;
     border-image: linear-gradient(to right,black, #0064F2, #02D6F2, #0064F2, black) 1;
 }
+
+.nav-under::after{
+    content:"";
+    display: block;
+    width: 0%;
+    height: 1px;
+    margin: 0 auto;
+    background-color: #02D6F2;
+    transition: width 0.2s ease-in-out;
+}
+.nav-under:hover::after{
+    width: 100%;
+}
+
+

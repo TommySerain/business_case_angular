@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-user',
+  standalone: true,
+  imports: [NgFor],
   templateUrl: './admin-user.component.html',
   styleUrls: ['./admin-user.component.css']
 })

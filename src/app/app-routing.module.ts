@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil/accueil.component';
 import { NftDetailsComponent } from './nft-details/nft-details/nft-details.component';
@@ -10,18 +10,19 @@ import { AddNftComponent } from './my-account/add-nft/add-nft.component';
 import { EditProfilComponent } from './my-account/edit-profil/edit-profil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { TokenService } from './services/token.service';
 
 const routes: Routes = [
 
   { path: '', component: AccueilComponent},
-  { path: 'nft/:id', component: NftDetailsComponent},
-  { path: 'login', component: LogComponent},
-  { path: 'myAccount', component: MyAccountComponent},
-  { path: 'edit/nft/:id', component: EditNftComponent},
-  { path: 'edit/profil', component: EditProfilComponent},
-  { path: 'new/collection', component: AddCollectionComponent},
-  { path: 'new/nft', component: AddNftComponent},
-  { path: 'admin/users', component: AdminUserComponent, canActivate: [AuthGuard]},
+  { path: 'nft/:id', component: NftDetailsComponent , title: 'Détails du NFT'},
+  { path: 'login', component: LogComponent , title: 'Connexion / Incription'},
+  { path: 'myAccount', component: MyAccountComponent , title: 'Mon compte'},
+  { path: 'edit/nft/:id', component: EditNftComponent , title: 'Edition d\'un NFT'},
+  { path: 'edit/profil', component: EditProfilComponent , title: 'Modifier mes informations'},
+  { path: 'new/collection', component: AddCollectionComponent , title: 'Créer ma nouvelle collection'},
+  { path: 'new/nft', component: AddNftComponent , title: 'Importer un nouvel NFT'},
+  { path: 'admin/users', component: AdminUserComponent, canActivate: [()=>inject(TokenService).isUserAdminGuards()] , title: 'Admin User'},
 
 ];
 
