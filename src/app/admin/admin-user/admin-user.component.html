@@ -12,7 +12,18 @@
             <td>{{user.email}}</td>
             <td>{{user.pseudo}}</td>
             <td>{{user.lastname}}</td>
-            <td><button class="borderAngle p-1">Supprimer</button></td>
+            <td><button class="borderAngle p-1" id="{{user.id}}" (click)="displayPopup($event)">Supprimer</button></td>
+
+            <div id="popup{{user.id}}" class=" hidden popstyle vitreDark">
+                <h2 class="text-center">Etes-vous sur de vouloir supprimer l'utilisateur {{user.pseudo}} ?</h2>
+                <h3 class="text-center">ATTENTION TOUTES LES DONNEES SERONT DEFINITIVEMENT PERDUES</h3>
+                <h3 class="text-center">NFT COMPRIS</h3>
+                <div class="d-flex justify-content-evenly">
+                    <button class="borderAngle p-1" (click)="deleteUserAndUpdateUserList(user.id!)">OUI</button>
+                    <button class="borderAngle p-1" (click)="displayNonePopup($event)">NON</button>
+                </div>
+            </div>
+
         </tr>
     </table>
 </section>

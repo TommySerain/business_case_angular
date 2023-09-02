@@ -15,7 +15,7 @@ export class UserService {
 
   public connectedUser?: UserInterface;
   private UserSubject = new BehaviorSubject<UserInterface[] | undefined>(undefined);
-
+  users$ = this.UserSubject.asObservable();
   
   editUserData(id:number, dataFromEditor:any): Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/merge-patch+json');
@@ -61,6 +61,15 @@ export class UserService {
       }
     );
     return this.connectedUser!;
+  }
+
+  dropNft(id: number): Observable<any> {
+    return this.http.delete<UserInterface>(`${this.urlUser}/${id}`).pipe(
+      tap(() => {
+        const updatedNfts = this.UserSubject.value?.filter(user => user.id !== id);
+        this.UserSubject.next(updatedNfts);
+      })
+    );
   }
 
 

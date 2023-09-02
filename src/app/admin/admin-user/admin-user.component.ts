@@ -1,6 +1,5 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserInterface } from 'src/app/models/user-interface';
@@ -21,7 +20,6 @@ export class AdminUserComponent {
   constructor(
     private userService:UserService,
     private router: Router,
-    private formBuilder: FormBuilder,
     private toastr: ToastrService
     ){}
 
@@ -39,5 +37,37 @@ export class AdminUserComponent {
       console.log('Attention :', users)
       console.log('user :', this.users)
     })
+  }
+
+  displayPopup(event: MouseEvent){
+    const button = event.target as HTMLElement;
+    const id :number =Number(button.id);
+    const popup:HTMLDivElement|null=document.querySelector(`#popup${id}`);
+    popup!.classList.toggle('hidden');
+    const body = document.querySelector('body');
+    body!.style.overflowY ="hidden"
+  }
+
+  displayNonePopup(event: MouseEvent){
+    const button = event.target as HTMLElement;
+    const parentNode :any=button.parentNode!.parentNode;
+    console.log(parentNode);
+    parentNode!.classList.toggle('hidden');
+    const body = document.querySelector('body');
+    body!.style.overflowY ="visible"
+  }
+
+  deleteUserAndUpdateUserList(id: number) {
+    this.userService.dropNft(id).subscribe(
+      () => {
+        this.users = this.users.filter(nft => nft.id !== id);
+        this.toastr.success("Utilisateur supprimé");
+      },
+      (error) => {
+        this.toastr.error("Echec de la suppression de l'utilisateur");
+      }
+    );
+    const body = document.querySelector('body');
+    body!.style.overflowY = "visible";
   }
 }
