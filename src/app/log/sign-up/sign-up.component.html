@@ -3,49 +3,49 @@
     <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Inscription</h2>
     
     <form [formGroup]="signUpform" class="row" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
             <label class="text-white" for="emailSignUp">Email : </label>
             <input class="form-control vitre px-3 text-white" type="email" name="emailSignUp" id="emailSignUp" formControlName="email"  required>
         </div>
-        <div class="mb-4 col-6">
-            <label class="text-white" for="lastnameSignUp">Nom : </label>
-            <input class="form-control vitre px-3 text-white" type="text" name="lastnameSignUp" id="lastnameSignUp" formControlName="lastname"  required>
-        </div>
-        <div class="mb-4 col-6">
-            <label class="text-white" for="passSignUp">Password : </label>
-            <input class="form-control vitre px-3 text-white" type="password" name="passSignUp" id="passSignUp" formControlName="password"  required>
-        </div>
-        <div class="mb-4 col-6">
-            <label class="text-white" for="passtwoSignUp">Confirmer Password : </label>
-            <input class="form-control vitre px-3 text-white" type="password" name="passtwoSignUp" id="passtwoSignUp" formControlName="passwordTwo"  required>
-        </div>
-        <div class="mb-4 col-6">
-            <label class="text-white" for="firstnameSignUp">Prénom : </label>
-            <input class="form-control vitre px-3 text-white" type="text" name="firstnameSignUp" id="firstnameSignUp" formControlName="firstname"  required>
-        </div>
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
             <label class="text-white" for="pseudoSignUp">Pseudo : </label>
             <input class="form-control vitre px-3 text-white" type="text" name="pseudoSignUp" id="pseudoSignUp" formControlName="pseudo"  required>
         </div>
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
+            <label class="text-white" for="lastnameSignUp">Nom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="lastnameSignUp" id="lastnameSignUp" formControlName="lastname"  required>
+        </div>
+        <div class="mb-4 col-md-6">
+            <label class="text-white" for="firstnameSignUp">Prénom : </label>
+            <input class="form-control vitre px-3 text-white" type="text" name="firstnameSignUp" id="firstnameSignUp" formControlName="firstname"  required>
+        </div>
+        <div class="mb-4 col-md-6">
+            <label class="text-white" for="passSignUp">Password : </label>
+            <input class="form-control vitre px-3 text-white" type="password" name="passSignUp" id="passSignUp" formControlName="password"  required>
+        </div>
+        <div class="mb-4 col-md-6">
+            <label class="text-white" for="passtwoSignUp">Confirmer Password : </label>
+            <input class="form-control vitre px-3 text-white" type="password" name="passtwoSignUp" id="passtwoSignUp" formControlName="passwordTwo"  required>
+        </div>
+        <div class="mb-4 col-md-6">
             <label class="text-white" for="birthSignUp">Date de naissance : </label>
             <input class="form-control vitre px-3 text-white" type="date" name="birthSignUp" id="birthSignUp" formControlName="birthdate"  required>
         </div>
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
             <label class="text-white" for="addressSignUp">Adresse : </label>
             <input class="form-control vitre px-3 text-white" type="text" name="addressSignUp" id="addressSignUp" formControlName="address"  required>
         </div>
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
             <label class="text-white" for="ZipcodeSignUp">Code Postal : </label>
             <input class="form-control vitre text-white px-3" type="text" name="ZipcodeSignUp" id="ZipcodeSignUp" formControlName="zipcode"  required>
         </div>
         
-        <div  formGroupName="country" class="mb-4 col-6">
+        <div  formGroupName="country" class="mb-4 col-md-6">
             <label class="text-white" for="countrySignUp">Pays : </label>
             <input class="form-control vitre text-white px-3" type="text" name="countrySignUp" id="countrySignUp" formControlName="name"  required>
         </div>
 
-        <div class="mb-4 col-6">
+        <div class="mb-4 col-md-6">
             <label class="mb-0">Genre :</label>
             <div class="mt-0 mb-4 d-flex flex-column vitre p-3 borderblue">
                 <div class="d-flex justify-content-between">
