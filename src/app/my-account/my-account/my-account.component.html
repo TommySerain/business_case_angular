@@ -48,6 +48,7 @@
                     </svg>
                 </div>
                 <div class=" bg-dark p-3 mb-0 rounded-bottom-3 w-100">
+                    <p>Collection : {{nft.collection.name}}</p>
                     <p>Prix en eth drop : {{nft.launchPriceEth}} ETH</p>
                     <p>Prix en euro drop : {{nft.launchPriceEur}} €</p>
                     <p *ngIf="ethValue" class="mb-0">Prix actuel : {{nft.launchPriceEth * ethValue.EUR | number : '1.2-2'}} €</p>

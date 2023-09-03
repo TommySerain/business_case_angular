@@ -28,7 +28,8 @@ import { AdminModule } from '../admin/admin.module';
     AdminModule
   ],
   exports: [
-    MyAccountComponent
+    MyAccountComponent,
+    PopupDeleteNftComponent
   ]
 })
 export class MyAccountModule { }

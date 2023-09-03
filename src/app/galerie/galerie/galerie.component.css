@@ -1,0 +1,21 @@
+img{
+    width : 175%;
+    cursor: pointer;
+}
+
+.hidden{
+    display : none;
+}
+
+svg{
+    cursor: pointer;
+}
+
+.icon:hover{
+    fill: #0064F2;
+}
+
+.icon{
+    transition: all;
+    transition-duration: 500ms;
+}

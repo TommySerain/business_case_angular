@@ -11,6 +11,7 @@ import { TokenRequestInterceptorProvider } from './interceptor/token-request.int
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyAccountModule } from './my-account/my-account.module';
+import { GalerieModule } from './galerie/galerie.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MyAccountModule } from './my-account/my-account.module';
     ToastrModule.forRoot({
       positionClass: 'toast-center-center',
     }),
-    MyAccountModule
+    MyAccountModule,
+    GalerieModule
   ],
   providers: [TokenRequestInterceptorProvider],
   bootstrap: [AppComponent]

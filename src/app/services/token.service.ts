@@ -72,7 +72,23 @@ export class TokenService {
     return false;
   }
 
-  isUserAdminGuards():boolean{
+  isUserAdmin():boolean{
+    const decodedToken=this.decodeJwt(this.getToken()!)
+    return decodedToken.roles.includes('ROLE_ADMIN')
+  }
+
+  isUserConnectedGuard():boolean{
+    const decodedToken=this.decodeJwt(this.getToken()!)
+    if(decodedToken.roles.includes('ROLE_USER')){
+      return true;
+    }else{
+      this.toast.error("Vous ne pouvez pas accéder à cette page.");
+      this.router.parseUrl('');
+      return false;
+    }
+  }
+
+  isUserAdminGuard():boolean{
     const decodedToken=this.decodeJwt(this.getToken()!)
     if(decodedToken.roles.includes('ROLE_ADMIN')){
       return true;
@@ -83,8 +99,4 @@ export class TokenService {
     }
   }
 
-  isUserAdmin():boolean{
-    const decodedToken=this.decodeJwt(this.getToken()!)
-    return decodedToken.roles.includes('ROLE_ADMIN')
-  }
 }

@@ -47,9 +47,7 @@ export class EditNftComponent implements OnInit {
   getNftData():void{
     this.nftService.getNft(this.nftId).subscribe((response:any) => {
     this.nft = response;
-    this.collections = this.connectedUser.collection;
-    console.log(this.nft)
-    console.log('utilisateur :', this.connectedUser)
+    this.collections = this.nft!.user.collection;
     })
   }
   getCategories():void{

@@ -10,36 +10,4 @@ h3{
     transform: translate(0,-20px);
 }
 
-/* @media screen and ( max-width:992px) {
 
-    .titreEth{
-        transform: translate(0, 20px);
-        z-index: 20;
-    }
-}
-@media screen and ( min-width:992px) {
-    #whyEthComp{
-        transform: translate(0 ,-0px);
-    }
-    #eth{
-        position: relative;
-        bottom: 820px;
-    }
-}
-@media screen and ( min-width:1199px) {
-    #eth{
-        position: relative;
-        bottom: 750px;
-    }
-}
-@media screen and ( min-width:1400px) {
-    #eth{
-        position: relative;
-        bottom: 700px;
-    }
-}
-@media screen and ( max-width:767px) {
-    #whyEthComp{
-        transform: translate(0,-80px);
-    }
-} */

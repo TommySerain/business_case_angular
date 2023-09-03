@@ -1,12 +1,15 @@
 <div class="translate mt-5 pt-5">
     <section class="container my-5" id="nftQuoi">
-        <h2 class="vitre px-4 mx-auto d-flex title-translate col-md-6" id="titreNftQuoi">MAIS AU FAIT, UN NFT C'EST QUOI ?
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" fill="currentColor" class="bi bi-caret-down d-flex d-md-none ms-auto" viewBox="0 0 16 16">
+        <h2 class="text-center title-translate text-center vitre p-2 mx-auto w-75" id="titreNftQuoi">FINALEMENT, UN NFT C'EST QUOI ?
+            <svg (click)="displayContent($event)" xmlns="http://www.w3.org/2000/svg" width="40" fill="currentColor" class="bi bi-caret-down ms-auto d-md-none" viewBox="0 0 16 16">
                 <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
             </svg>
         </h2>
+        <div class="hidden d-md-none contentNft text-center mx-auto">
+            <p class="w-auto mx-auto vitre p-4" [innerHTML]="content" ></p>
+        </div>
         <div class="row vitre p-5 d-none d-md-flex">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat distinctio quod a, fugiat debitis consectetur voluptate explicabo fugit doloremque officia architecto, impedit placeat ullam ea expedita soluta voluptas accusamus amet quae. Eius, exercitationem autem. Doloremque, optio cupiditate aliquid ipsam reprehenderit nulla quod hic, et iure rem alias sequi provident eligendi a repellendus nemo fuga consequuntur, perferendis nihil ratione possimus? Dicta ex esse nemo natus cum quidem saepe cumque sint, temporibus fugiat? Quaerat, suscipit itaque hic earum inventore assumenda cum nisi ex voluptates adipisci quidem rerum amet vitae, reiciendis debitis sit laudantium facere laborum maxime? Ad qui quaerat sed natus fugit?</p>
+            <p [innerHTML]="content"></p>
             <div class="text-center">
                 <a class="borderAngle m-2 mx-auto " href="#">En savoir plus</a>
             </div>

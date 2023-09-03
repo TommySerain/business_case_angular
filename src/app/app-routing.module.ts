@@ -11,18 +11,20 @@ import { EditProfilComponent } from './my-account/edit-profil/edit-profil.compon
 import { AuthGuard } from './guards/auth.guard';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { TokenService } from './services/token.service';
+import { GalerieComponent } from './galerie/galerie/galerie.component';
 
 const routes: Routes = [
 
-  { path: '', component: AccueilComponent},
+  { path: '', component: AccueilComponent , title: 'Accueil'},
   { path: 'nft/:id', component: NftDetailsComponent , title: 'Détails du NFT'},
   { path: 'login', component: LogComponent , title: 'Connexion / Incription'},
-  { path: 'myAccount', component: MyAccountComponent , title: 'Mon compte'},
+  { path: 'myAccount', component: MyAccountComponent, canActivate: [()=>inject(TokenService).isUserConnectedGuard()] , title: 'Mon compte'},
+  { path: 'galerie', component: GalerieComponent , title: 'Gallerie'},
   { path: 'edit/nft/:id', component: EditNftComponent , title: 'Edition d\'un NFT'},
   { path: 'edit/profil', component: EditProfilComponent , title: 'Modifier mes informations'},
   { path: 'new/collection', component: AddCollectionComponent , title: 'Créer ma nouvelle collection'},
   { path: 'new/nft', component: AddNftComponent , title: 'Importer un nouvel NFT'},
-  { path: 'admin/users', component: AdminUserComponent, canActivate: [()=>inject(TokenService).isUserAdminGuards()] , title: 'Admin User'},
+  { path: 'admin/users', component: AdminUserComponent, canActivate: [()=>inject(TokenService).isUserAdminGuard()] , title: 'Admin User'},
 
 ];
 
