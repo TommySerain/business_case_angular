@@ -1,0 +1,15 @@
+.pConcours{
+    padding: 5px;
+    font-family: 'Orbitron';
+    background-image:linear-gradient(to right, #0064F2, #00C4DE 33.33333%, #00C4DE 66.66666%, #0064F2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 100%;
+    background-position: top left;
+    transition: background 0.8s ease-in-out;
+}
+
+img{
+    cursor: pointer;
+}
