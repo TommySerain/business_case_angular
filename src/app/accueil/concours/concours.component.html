@@ -15,21 +15,21 @@
                 </div>
             </div>
             <div class="p-md-5 col-md-6 text-center my-auto" id="gagnant">
-                <img [routerLink]="['/nft',nft.id]" src="{{nft.img}}" class=" imageConcours" alt="{{nft.description}}">
+                <img [routerLink]="['/nft',nft?.id]" src="{{nft?.img}}" class=" imageConcours" alt="{{nft?.description}}">
                 <h2 class="pt-3">GAGNANT DU CONCOURS</h2>
                 <div class="w-100 mx-auto d-md-none bg-dark">
-                    <a class="mx-auto" [routerLink]="['/nft',nft.id]">{{nft.name}}</a>
+                    <a class="mx-auto" [routerLink]="['/nft',nft?.id]">{{nft?.name}}</a>
                 </div>
                 <div class="w-100 mx-auto d-md-none bg-dark">
-                    <p class="mx-auto pConcours">Propiétaire : {{nft.user.pseudo}}</p>
+                    <p class="mx-auto pConcours">Propiétaire : {{nft?.user?.pseudo}}</p>
                 </div>
             </div>
         </div>
         <div class="row p-0 m-0 liens text-center d-none d-md-flex bg-dark">
             <a href="#" class="col-md-3">Participer au concours</a>
             <a class="col-md-4" href="#">Accéder à la galerie pour voter</a>
-            <p class="col-md-2 m-0 pConcours">{{nft.user.pseudo}}</p>
-            <a class="col-md-3" [routerLink]="['/nft',nft.id]">{{nft.name}}</a>
+            <p class="col-md-2 m-0 pConcours">{{nft?.user?.pseudo}}</p>
+            <a class="col-md-3" [routerLink]="['/nft',nft?.id]">{{nft?.name}}</a>
         </div>
     </section>
 </div>
