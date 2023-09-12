@@ -83,7 +83,7 @@ export class TokenService {
       return true;
     }else{
       this.toast.error("Vous ne pouvez pas accéder à cette page.");
-      this.router.parseUrl('');
+      this.router.navigate(['']);
       return false;
     }
   }
@@ -94,7 +94,7 @@ export class TokenService {
       return true;
     }else{
       this.toast.error("Vous ne pouvez pas accéder à cette page.");
-      this.router.parseUrl('');
+      this.router.navigate(['']);
       return false;
     }
   }
