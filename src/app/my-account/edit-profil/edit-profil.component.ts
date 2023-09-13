@@ -58,8 +58,6 @@ export class EditProfilComponent implements OnInit {
         this.toastr.error("Echec de l'inscription, email déjà existant");
       }else{
       this.toastr.error("Echec de l'inscription, veuillez vérifier vos informations");
-      // console.log(this.signUpform.getRawValue())
-      // console.log("error", err);
       };
     }
   )}

@@ -60,16 +60,12 @@ export class AddNftComponent implements OnInit {
     this.addNftForm.get('launchPriceEur')?.setValue(this.addNftForm.value.launchPriceEth! * this.ethValue);
     this.addNftForm.get('collection')?.setValue(collectionIri);
     this.addNftForm.get('category')?.setValue(selectedCategoryIRIs);
-    console.log('formvaluelaunchPriceEth :', this.addNftForm.value.launchPriceEth!)
-    console.log('ethValue : ', this.ethValue)
-    console.log('form : ',this.addNftForm)
     this.nftService.addNft(this.addNftForm)
     .subscribe(
       ()=> { this.toast.success(`Création du NFT ${this.addNftForm.value.name} réussie`);
       this.router.navigate(['']);
       },
       (err)=>{
-        console.log(err);
         this.toast.error('Echec de la création du NFT')
       }
     )
@@ -94,14 +90,12 @@ export class AddNftComponent implements OnInit {
         : [...(currentCategories ?? []), categoryId];
     
         this.selectedCategories = updatedCategories;
-        console.log(this.selectedCategories)
         categoryControl.setValue(this.selectedCategories);
     }
   }
   getCategories():void{
     this.categoryService.getCategories().subscribe((categories) =>{
       this.categories = categories['hydra:member']
-      console.log(this.categories)
     })
   }
 

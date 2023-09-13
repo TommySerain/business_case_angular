@@ -39,9 +39,6 @@ addCollectionForm = this.formBuilder.group({
 onSubmit(){
   const UserIri: string = `http://localhost:8000/api/users/${this.connectedUser.id}`
   this.addCollectionForm.get('user')?.setValue(UserIri);
-  console.log('Add Collection : ', UserIri)
-  console.log('Add Collection : ', this.connectedUser.id)
-  console.log('Add Collection : ', this.addCollectionForm)
   this.collectionService.addCollection(this.addCollectionForm)
   .subscribe(
     ()=> { this.toast.success(`Création de la Collection ${this.addCollectionForm.value.name} réussie`);

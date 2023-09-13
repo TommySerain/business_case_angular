@@ -37,8 +37,6 @@ export class MyAccountComponent implements OnInit{
     this.isAdmin=this.tokenService.isUserAdmin();
     // this.decodedToken=this.tokenService.decodeJwt(this.tokenService.getToken()!)
     // this.connectedUserRole=this.decodedToken.roles
-    // console.log('decodedToken : ',this.decodedToken);
-    // console.log('connectedUserRole : ',this.connectedUserRole)
     if(!this.connectedUser){
       this.router.navigate(['/login']);
     }

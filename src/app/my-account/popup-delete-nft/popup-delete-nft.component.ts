@@ -39,14 +39,11 @@ export class PopupDeleteNftComponent {
   deleteNftAndUpdateNftList(id: number) {
     this.nftService.dropNft(id).subscribe(
       () => {
-        console.log("NFT deleted successfully");
         this.connectedUserNfts = this.connectedUserNfts.filter(nft => nft.id !== id);
         this.toastrService.success("Suppression du Nft réussie");
-        console.log(this.connectedUserNfts);
       },
       (error) => {
         this.toastrService.error("Echec de la suppression du Nft");
-        console.error("Error deleting NFT:", error);
       }
     );
     const body = document.querySelector('body');
@@ -56,7 +53,6 @@ export class PopupDeleteNftComponent {
   displayNonePopup(event: MouseEvent){
     const button = event.target as HTMLElement;
     const parentNode :any=button.parentNode!.parentNode;
-    console.log(parentNode);
     parentNode!.classList.toggle('hidden');
     const body = document.querySelector('body');
     body!.style.overflowY ="visible"

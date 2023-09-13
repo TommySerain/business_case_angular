@@ -43,7 +43,6 @@ export class CarrouselTelephoneComponent {
 }
 
   handlePhoneClick(){
-    // console.log("test");
     this.fondHolo=document.querySelector("#fondHolo");
     this.holo=document.querySelector("#telHolo");
     this.link=document.querySelector('.telHoloLink');
@@ -78,7 +77,6 @@ export class CarrouselTelephoneComponent {
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);
-        // console.log(this.i, this.nftTel.length)
   }
 
   handleLeftClick(){
@@ -98,6 +96,5 @@ export class CarrouselTelephoneComponent {
         this.holo!.classList.toggle("holo-hidden");
         this.fondHolo!.classList.toggle("holo-hidden");
         }, 1000);
-        // console.log(this.i, this.nftTel.length)
   }
 }

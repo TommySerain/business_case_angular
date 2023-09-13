@@ -53,7 +53,6 @@ export class EditNftComponent implements OnInit {
   getCategories():void{
     this.categoryService.getCategories().subscribe((categories) =>{
       this.categories = categories['hydra:member']
-      console.log(this.categories)
     })
   }
 
@@ -77,7 +76,6 @@ toggleCategorySelection(categoryId: number):void{
       : [...(currentCategories ?? []), categoryId];
   
       this.selectedCategories = updatedCategories;
-      console.log(this.selectedCategories)
       categoryControl.setValue(this.selectedCategories);
   }
 }
@@ -95,8 +93,6 @@ onSubmit() {
   }
   
   const selectedCategoryIRIs: string[] = this.selectedCategories.map(categoryId => `http://localhost:8000/api/categories/${categoryId}`);
-  console.log('categories : ', this.selectedCategories)
-  console.log('select : ', selectedCategoryIRIs);
   const collectionId = this.editNftForm.value.collection;
   const IRICollection: string = `http://localhost:8000/api/collection_nfts/${collectionId}`;
   

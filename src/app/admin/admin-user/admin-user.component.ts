@@ -34,8 +34,6 @@ export class AdminUserComponent {
   getUsers():void{
     this.userService.getUsers().subscribe(users =>{
       this.users = users['hydra:member']
-      console.log('Attention :', users)
-      console.log('user :', this.users)
     })
   }
 
@@ -51,7 +49,6 @@ export class AdminUserComponent {
   displayNonePopup(event: MouseEvent){
     const button = event.target as HTMLElement;
     const parentNode :any=button.parentNode!.parentNode;
-    console.log(parentNode);
     parentNode!.classList.toggle('hidden');
     const body = document.querySelector('body');
     body!.style.overflowY ="visible"

@@ -15,7 +15,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class ConcoursComponent {
 
   public nft?: NftInterface;
-  private nftId:number = 34;
+  private nftId:number = 11;
   public possesseur!: UserInterface;
   constructor(
     private route: ActivatedRoute,
